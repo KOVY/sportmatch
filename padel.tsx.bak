@@ -1,0 +1,1206 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'wouter';
+import { 
+  Calendar, MapPin, Trophy, Users, Clock, Star, CheckCircle, CalendarDays, ChevronLeft,
+  Video, Play, Heart, Share2, MessageCircle, Gift, Zap, ChevronRight, Plus, CreditCard,
+  Flame, Award, Bookmark, Info, Layers, Activity, RefreshCw, Radar, MessagesSquare,
+  Table, SquareUser, PanelTop, MapPinned, Medal, Compass, CalendarCheck, ArrowRight,
+  Building, School, Library, Sparkles, Coins, ScanLine, ImageIcon, Home
+} from 'lucide-react';
+import { createLocalizedLink } from '@/utils/language-utils';
+import { useTranslation } from 'react-i18next';
+import { SportIconScroller } from '@/components/sports/SportIconScroller';
+import { Button } from '@/components/ui/button';
+import { TournamentCard } from '@/components/tournaments/TournamentCard';
+import { TokenIcon } from '@/components/tokens/TokenIcon';
+import FixedTokensCard from '@/components/tokens/FixedTokensCard';
+import { useToken } from '@/hooks/use-token';
+import { useToast } from '@/hooks/use-toast';
+import { BuyTokensModal } from '@/components/tokens/BuyTokensModal';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Separator } from '@/components/ui/separator';
+import { Progress } from '@/components/ui/progress';
+import { CzechFacility, getFacilitiesBySport } from '@shared/czech-facilities';
+import tournamentService, { Tournament } from '@/services/TournamentService';
+
+// Vlastní styly pro stránku sportu
+import '@/pages/sports/sport-page.css';
+
+/**
+ * Vylepšená česká stránka pro Padel
+ */
+const PadelPage: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language as "cs";
+  const [location, setLocation] = useLocation();
+  const [activeTab, setActiveTab] = useState("tournaments");
+  const { toast } = useToast();
+  
+  // Stav pro sportoviště nabízející padel
+  const [padelFacilities, setPadelFacilities] = useState<CzechFacility[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  
+  // Stav pro modální okno s tokeny
+  const [isTokenModalOpen, setIsTokenModalOpen] = useState(false);
+  const { tokenBalance, addTokens } = useToken();
+  
+  // Načtení padelových sportovišť při inicializaci komponenty
+  useEffect(() => {
+    // Získáme všechna sportoviště s padelem
+    const facilities = getFacilitiesBySport('PAD');
+    setPadelFacilities(facilities);
+  }, []);
+  
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    console.log('Přepnuta záložka na:', tab);
+  };
+  
+  const handleBuyTokens = () => {
+    setIsTokenModalOpen(true);
+  };
+  
+  // Zpracování akce "přidat tokeny"
+  const handleAddTokens = (amount: number) => {
+    addTokens(amount);
+    toast({
+      title: "Tokeny přidány",
+      description: `${amount} FitnessTokenů bylo přidáno do vašeho účtu.`,
+    });
+  };
+
+  // Seznam doporučených padelových eventů
+  const [padelTournaments, setPadelTournaments] = useState<Tournament[]>([]);
+  
+  // Načtení turnajů z TournamentService
+  useEffect(() => {
+    // ODSTRANĚNO: tournamentService.addSampleTournaments(); - Způsobovalo opětovné vytvoření turnajů, i když byly smazány
+    
+    // Explicitní znovunačtení dat z localStorage
+    tournamentService.reloadData();
+    
+    // Načtení turnajů pro padel
+    const tournaments = tournamentService.getTournamentsBySport('padel');
+    console.log('Načítám turnaje pro padel:', tournaments);
+    setPadelTournaments(tournaments);
+    
+    // Přihlásit se k odběru změn v turnajích
+    const unsubscribe = tournamentService.subscribe(() => {
+      // Načíst aktuální turnaje pro padel při každé změně
+      const updatedTournaments = tournamentService.getTournamentsBySport('padel');
+      console.log('Aktualizuji padel turnaje:', updatedTournaments);
+      setPadelTournaments(updatedTournaments);
+    });
+    
+    // Odhlásit se od odběru při ukončení komponenty
+    return () => unsubscribe();
+  }, []);
+
+  // Seznam už je definován výše
+  const [isLoadingTournaments, setIsLoadingTournaments] = useState(false);
+
+  // Seznam klubů a trenérů pro Padel
+  const padelCoaches = [
+    {
+      id: 1,
+      name: "Jan Novák",
+      specialization: "Padel - začátečníci a středně pokročilí",
+      location: "SC Trnovany Teplice",
+      rating: 4.8,
+      hourlyRate: "650 CZK",
+      image: "/images/coaches/coach1.jpg"
+    },
+    {
+      id: 2,
+      name: "Petra Svobodová",
+      specialization: "Závodní padel, pokročilá technika",
+      location: "Padel Arena Praha",
+      rating: 4.9,
+      hourlyRate: "800 CZK",
+      image: "/images/coaches/coach2.jpg"
+    },
+    {
+      id: 3,
+      name: "Martin Dvořák",
+      specialization: "Padel pro děti, rodinný padel",
+      location: "PadelPoint Brno",
+      rating: 4.7,
+      hourlyRate: "600 CZK",
+      image: "/images/coaches/coach3.jpg"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero sekce s vylepšeným designem */}
+      <div className="bg-gradient-to-r from-teal-800 to-teal-500 py-16 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="w-full md:w-1/2 mb-8 md:mb-0">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Padel</h1>
+              <p className="text-xl mb-6">
+                Dynamická kombinace tenisu a squashe, kterou si snadno zamilujete.
+                Tento rychle rostoucí raketový sport je ideální pro hráče všech úrovní.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Button className="bg-white text-teal-800 hover:bg-gray-100">
+                  <CalendarDays className="mr-2 h-5 w-5" />
+                  Rezervovat kurt
+                </Button>
+                <Button className="bg-transparent border border-white hover:bg-white/10">
+                  <Video className="mr-2 h-5 w-5" />
+                  Video tutoriály
+                </Button>
+                <Button variant="outline" className="bg-transparent border border-white hover:bg-white/10">
+                  <Heart className="mr-2 h-5 w-5" />
+                  Oblíbit
+                </Button>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 flex justify-center md:justify-end relative">
+              <div className="bg-white p-4 rounded-lg shadow-lg">
+                <img
+                  src="/images/padel-hero.jpg"
+                  alt="Padel"
+                  className="w-full max-w-md rounded-md"
+                />
+                <div className="absolute -top-3 -right-3 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  Populární
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Stránka používá hlavní navigační menu celého webu, není třeba přidávat další navigaci */}
+      
+      {/* Vlastní jednoduché záložky */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="w-full border-b border-gray-200 rounded-t-lg rounded-b-none bg-gray-50">
+          <div className="flex space-x-1 overflow-x-auto">
+            <button 
+              onClick={() => handleTabChange("overview")} 
+              className={`px-4 py-2 flex items-center border-b-2 text-sm font-medium ${activeTab === "overview" ? "border-teal-500 text-teal-700" : "border-transparent text-gray-500 hover:text-gray-700"}`}
+            >
+              <PanelTop className="h-4 w-4 mr-2" />
+              Přehled
+            </button>
+            <button 
+              onClick={() => handleTabChange("courts")} 
+              className={`px-4 py-2 flex items-center border-b-2 text-sm font-medium ${activeTab === "courts" ? "border-teal-500 text-teal-700" : "border-transparent text-gray-500 hover:text-gray-700"}`}
+            >
+              <MapPinned className="h-4 w-4 mr-2" />
+              Kurty
+            </button>
+            <button 
+              onClick={() => handleTabChange("tournaments")} 
+              className={`px-4 py-2 flex items-center border-b-2 text-sm font-medium ${activeTab === "tournaments" ? "border-teal-500 text-teal-700" : "border-transparent text-gray-500 hover:text-gray-700"}`}
+            >
+              <Trophy className="h-4 w-4 mr-2" />
+              Turnaje
+            </button>
+            <button 
+              onClick={() => handleTabChange("coaches")} 
+              className={`px-4 py-2 flex items-center border-b-2 text-sm font-medium ${activeTab === "coaches" ? "border-teal-500 text-teal-700" : "border-transparent text-gray-500 hover:text-gray-700"}`}
+            >
+              <School className="h-4 w-4 mr-2" />
+              Trenéři
+            </button>
+            <button 
+              onClick={() => handleTabChange("players")} 
+              className={`px-4 py-2 flex items-center border-b-2 text-sm font-medium ${activeTab === "players" ? "border-teal-500 text-teal-700" : "border-transparent text-gray-500 hover:text-gray-700"}`}
+            >
+              <Users className="h-4 w-4 mr-2" />
+              Najít hráče
+            </button>
+            <button 
+              onClick={() => handleTabChange("videostream")} 
+              className={`px-4 py-2 flex items-center border-b-2 text-sm font-medium ${activeTab === "videostream" ? "border-teal-500 text-teal-700" : "border-transparent text-gray-500 hover:text-gray-700"}`}
+            >
+              <span className="flex items-center">
+                <Video className="h-4 w-4 mr-2" />
+                Video
+                <span className="ml-1.5 bg-teal-100 text-teal-800 text-xs px-1.5 py-0.5 rounded-full">Tokeny</span>
+              </span>
+            </button>
+            <button 
+              onClick={() => handleTabChange("community")} 
+              className={`px-4 py-2 flex items-center border-b-2 text-sm font-medium ${activeTab === "community" ? "border-teal-500 text-teal-700" : "border-transparent text-gray-500 hover:text-gray-700"}`}
+            >
+              <MessagesSquare className="h-4 w-4 mr-2" />
+              Komunita
+            </button>
+          </div>
+        </div>
+        
+        {/* Obsah záložek */}
+        <div className="mt-6 p-6">
+          {/* Obsah záložky Přehled */}
+          {activeTab === "overview" && (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2">
+                <section className="mb-10">
+                  <h2 className="text-2xl font-bold mb-4">Co je Padel?</h2>
+                  <p className="mb-4">
+                    Padel je raketový sport, který kombinuje prvky tenisu a squashe. Hraje se na uzavřeném kurtu, který je menší než tenisový 
+                    a má stěny ze skla a pletiva, které jsou součástí hry. Padel se hraje ve čtyřhře nebo dvouhře, 
+                    s raketami bez výpletů a měkčími míči než při tenise.
+                  </p>
+                  <p className="mb-4">
+                    Česká republika zaznamenává rychlý růst popularity tohoto sportu a nové kurty vznikají v mnoha městech. 
+                    Padel je skvělou volbou pro všechny věkové kategorie a úrovně dovedností.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div className="bg-teal-50 p-4 rounded-lg border border-teal-100">
+                      <Clock className="h-6 w-6 text-teal-600 mb-2" />
+                      <h3 className="font-semibold mb-1">Rychlé učení</h3>
+                      <p className="text-sm">Základy zvládnete za první hodinu hry</p>
+                    </div>
+                    <div className="bg-teal-50 p-4 rounded-lg border border-teal-100">
+                      <Users className="h-6 w-6 text-teal-600 mb-2" />
+                      <h3 className="font-semibold mb-1">Společenský sport</h3>
+                      <p className="text-sm">Ideální pro hraní ve skupině přátel</p>
+                    </div>
+                    <div className="bg-teal-50 p-4 rounded-lg border border-teal-100">
+                      <Activity className="h-6 w-6 text-teal-600 mb-2" />
+                      <h3 className="font-semibold mb-1">Aktivní pohyb</h3>
+                      <p className="text-sm">Skvělý kardio trénink pro všechny věkové skupiny</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section className="mb-10">
+                  <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-2xl font-bold">Nadcházející turnaje</h2>
+                    <Link href={createLocalizedLink('/cs/turnaje?sport=PAD', lang)}>
+                      <Button variant="ghost" className="text-teal-600 hover:text-teal-700">
+                        Všechny turnaje
+                        <ChevronRight className="ml-1 h-4 w-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {padelTournaments.map((tournament) => (
+                      <Card key={tournament.id} className="overflow-hidden hover:shadow-md transition-shadow">
+                        <div className="h-36 bg-gray-200 relative">
+                          <img
+                            src="/images/padel-default.jpg"
+                            alt={tournament.name}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute top-2 right-2 bg-white text-teal-800 text-xs font-semibold px-2 py-1 rounded">
+                            {new Date(tournament.startDate).toLocaleDateString('cs-CZ')}
+                          </div>
+                        </div>
+                        <CardContent className="p-4">
+                          <h3 className="font-bold mb-1 text-gray-900">{tournament.name}</h3>
+                          <div className="flex items-center text-gray-600 mb-3 text-sm">
+                            <MapPin className="h-4 w-4 mr-1" />
+                            {tournament.location}
+                          </div>
+                          <div className="flex items-center text-gray-600 mb-3 text-sm">
+                            <Users className="h-4 w-4 mr-1" />
+                            {tournament.participants}/{tournament.capacity} hráčů
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <span className="text-sm font-medium">
+                              {tournament.price} Kč
+                            </span>
+                            <Link href={`/cs/turnaje/${tournament.id}`}>
+                              <Button size="sm" className="bg-teal-600 hover:bg-teal-700 text-white">
+                                {tournament.registrationOpen ? "Registrovat" : "Detail"}
+                              </Button>
+                            </Link>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                  <div className="mt-4 text-center">
+                    <Link href={createLocalizedLink('/cs/turnaje/vytvorit?sport=PAD', lang)}>
+                      <Button variant="outline" className="mt-4">
+                        <Plus className="h-4 w-4 mr-2" />
+                        Vytvořit vlastní turnaj
+                      </Button>
+                    </Link>
+                  </div>
+                </section>
+              </div>
+
+              {/* Sidebar s doplňkovými informacemi */}
+              <div className="lg:col-span-1 space-y-6">
+                <Card className="overflow-hidden">
+                  <CardHeader className="bg-teal-50 p-4 border-b border-teal-100">
+                    <CardTitle className="text-lg font-semibold text-teal-800">Doporučená sportoviště</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                      <h3 className="font-medium mb-1">SC Trnovany Teplice</h3>
+                      <div className="flex items-center text-gray-600 text-sm mb-2">
+                        <MapPin className="h-3 w-3 mr-1" />
+                        <span>Trnovany, Teplice</span>
+                      </div>
+                      <div className="flex items-center text-amber-500">
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3" />
+                        <span className="text-gray-600 text-sm ml-1">4.2 (86 hodnocení)</span>
+                      </div>
+                    </div>
+                    <div className="p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                      <h3 className="font-medium mb-1">Padel Arena Praha</h3>
+                      <div className="flex items-center text-gray-600 text-sm mb-2">
+                        <MapPin className="h-3 w-3 mr-1" />
+                        <span>Štěrboholy, Praha</span>
+                      </div>
+                      <div className="flex items-center text-amber-500">
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3 fill-current" />
+                        <span className="text-gray-600 text-sm ml-1">4.8 (124 hodnocení)</span>
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-medium mb-1">PadelPoint Brno</h3>
+                      <div className="flex items-center text-gray-600 text-sm mb-2">
+                        <MapPin className="h-3 w-3 mr-1" />
+                        <span>Královo Pole, Brno</span>
+                      </div>
+                      <div className="flex items-center text-amber-500">
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3 fill-current" />
+                        <Star className="h-3 w-3 stroke-current fill-none" />
+                        <span className="text-gray-600 text-sm ml-1">4.3 (98 hodnocení)</span>
+                      </div>
+                    </div>
+                    <div className="p-4 border-t border-gray-100 text-center">
+                      <Link href={createLocalizedLink('/cs/sporty/padel/kurty', lang)}>
+                        <Button variant="outline" size="sm" className="w-full">
+                          Zobrazit všechna sportoviště
+                          <ChevronRight className="ml-1 h-4 w-4" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* FitnessToken widget */}
+                <Card className="overflow-hidden border border-blue-100">
+                  <CardHeader className="bg-blue-50 p-4 border-b border-blue-100">
+                    <div className="flex justify-between items-center">
+                      <CardTitle className="text-lg font-semibold text-blue-800">FitnessTokens</CardTitle>
+                      <TokenIcon size="md" />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-4">
+                    <div className="mb-4">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm font-medium">Váš zůstatek</span>
+                        <span className="font-bold text-blue-600">{tokenBalance} FT</span>
+                      </div>
+                      <Progress value={tokenBalance > 0 ? (tokenBalance / 100) * 100 : 0} className="h-2 bg-blue-100" />
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm">
+                        S FitnessTokeny získáte přístup k prémiovým funkcím a slevám na sportovní aktivity.
+                      </p>
+                      <Button 
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white" 
+                        onClick={handleBuyTokens}
+                      >
+                        <CreditCard className="h-4 w-4 mr-2" />
+                        Dobít tokeny
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Nejlepší hráči - vpravo dole */}
+                <Card className="overflow-hidden">
+                  <CardHeader className="bg-amber-50 p-4 border-b border-amber-100">
+                    <CardTitle className="text-lg font-semibold text-amber-800">Nejlepší hráči</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="p-4 border-b border-gray-100 flex items-center">
+                      <Avatar className="h-10 w-10 mr-3">
+                        <AvatarImage src="/images/avatars/player1.jpg" alt="Tomáš Verner" />
+                        <AvatarFallback>TV</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <h3 className="font-medium leading-tight">Tomáš Verner</h3>
+                        <div className="flex items-center">
+                          <Medal className="h-3 w-3 text-amber-500 mr-1" />
+                          <span className="text-xs text-gray-600">Top 1 v Praze</span>
+                        </div>
+                      </div>
+                      <Badge className="ml-auto bg-amber-500">1954 bodů</Badge>
+                    </div>
+                    <div className="p-4 border-b border-gray-100 flex items-center">
+                      <Avatar className="h-10 w-10 mr-3">
+                        <AvatarImage src="/images/avatars/player2.jpg" alt="Karolína Malá" />
+                        <AvatarFallback>KM</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <h3 className="font-medium leading-tight">Karolína Malá</h3>
+                        <div className="flex items-center">
+                          <Medal className="h-3 w-3 text-blue-500 mr-1" />
+                          <span className="text-xs text-gray-600">Top 2 v Brně</span>
+                        </div>
+                      </div>
+                      <Badge className="ml-auto bg-blue-500">1822 bodů</Badge>
+                    </div>
+                    <div className="p-4 flex items-center">
+                      <Avatar className="h-10 w-10 mr-3">
+                        <AvatarImage src="/images/avatars/player3.jpg" alt="Jan Kohout" />
+                        <AvatarFallback>JK</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <h3 className="font-medium leading-tight">Jan Kohout</h3>
+                        <div className="flex items-center">
+                          <Medal className="h-3 w-3 text-emerald-500 mr-1" />
+                          <span className="text-xs text-gray-600">Top 3 v Ostravě</span>
+                        </div>
+                      </div>
+                      <Badge className="ml-auto bg-emerald-500">1789 bodů</Badge>
+                    </div>
+                    <div className="p-4 border-t border-gray-100 text-center">
+                      <Link href={createLocalizedLink('/cs/zebricek/padel', lang)}>
+                        <Button variant="ghost" size="sm" className="w-full text-amber-600 hover:text-amber-700">
+                          Zobrazit žebříček
+                          <ChevronRight className="ml-1 h-4 w-4" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          )}
+          
+          {/* Obsah záložky Kurty */}
+          {activeTab === "courts" && (
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold">Padelové kurty v ČR</h2>
+                <Link href={createLocalizedLink('/cs/sporty/sportovistevcr?sport=PAD', lang)}>
+                  <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+                    Zobrazit na mapě
+                    <MapPin className="ml-1.5 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {isLoading ? (
+                  <p>Načítání sportovišť...</p>
+                ) : padelFacilities.length > 0 ? (
+                  padelFacilities.map((facility) => (
+                    <Card key={facility.id} className="overflow-hidden hover:shadow-md transition-shadow">
+                      <div className="h-40 bg-gray-200 relative">
+                        <img
+                          src={facility.image || "/images/padel-court-default.jpg"}
+                          alt={facility.name}
+                          className="w-full h-full object-cover"
+                        />
+                        {facility.isNew && (
+                          <div className="absolute top-2 left-2 bg-teal-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                            Nové
+                          </div>
+                        )}
+                        {facility.hasDiscount && (
+                          <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                            Sleva 15%
+                          </div>
+                        )}
+                      </div>
+                      <CardContent className="p-4">
+                        <h3 className="font-bold mb-1 text-gray-900">{facility.name}</h3>
+                        <div className="flex items-center text-gray-600 mb-2 text-sm">
+                          <MapPin className="h-4 w-4 mr-1" />
+                          {facility.address || facility.city}
+                        </div>
+                        {facility.rating && (
+                          <div className="flex items-center text-amber-500 mb-3">
+                            <Star className="h-4 w-4 fill-current" />
+                            <Star className="h-4 w-4 fill-current" />
+                            <Star className="h-4 w-4 fill-current" />
+                            <Star className="h-4 w-4 fill-current" />
+                            <Star className="h-4 w-4" />
+                            <span className="text-gray-600 text-sm ml-1">{facility.rating}</span>
+                          </div>
+                        )}
+                        <div className="flex justify-between items-center mt-2">
+                          <span className="text-sm font-medium text-gray-600">
+                            {facility.priceRange || "300-500 Kč/h"}
+                          </span>
+                          <Link href={createLocalizedLink(`/cs/sporty/padel/kurty/${facility.id}`, lang)}>
+                            <Button size="sm" className="bg-teal-600 hover:bg-teal-700 text-white">
+                              Rezervovat
+                            </Button>
+                          </Link>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))
+                ) : (
+                  <p>Žádná padelová sportoviště nebyla nalezena.</p>
+                )}
+              </div>
+              <div className="mt-6 text-center">
+                <Button variant="outline" className="mr-4">
+                  <Plus className="mr-2 h-4 w-4" />
+                  Přidat sportoviště
+                </Button>
+                <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                  Všechna sportoviště
+                </Button>
+              </div>
+            </div>
+          )}
+          
+          {/* Obsah záložky Turnaje */}
+          {activeTab === "tournaments" && (
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold">Padel turnaje</h2>
+                <Link href={createLocalizedLink('/cs/turnaje/vytvorit?sport=PAD', lang)}>
+                  <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+                    Vytvořit turnaj
+                    <Plus className="ml-1.5 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Turnaj 1 */}
+                <Card className="h-full border-2 hover:border-primary/50 transition-colors">
+                  <CardHeader className="pb-2">
+                    <h3 className="text-xl font-bold">Padel Open Praha 2025</h3>
+                    
+                    <div className="flex items-center text-sm space-x-4 mt-1 text-muted-foreground">
+                      <div className="flex items-center">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        <span>15.6.2025 - 16.6.2025</span>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        <MapPin className="h-4 w-4 mr-1" />
+                        <span>Padel Arena Praha</span>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="pt-0 pb-4 space-y-4">
+                    <div className="flex items-center mt-2">
+                      <Avatar className="h-8 w-8 mr-2">
+                        <AvatarImage src="/images/organizers/padel-association.png" alt="Česká padelová asociace" />
+                        <AvatarFallback className="bg-secondary">ČP</AvatarFallback>
+                      </Avatar>
+                      <div className="text-sm">
+                        <div className="text-muted-foreground">Organizuje</div>
+                        <div>Česká padelová asociace</div>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="space-y-1">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <Trophy className="h-4 w-4 mr-1" />
+                          <span>Formát turnaje</span>
+                        </div>
+                        <div className="font-medium">vyřazovací</div>
+                        <div className="text-xs text-muted-foreground">Vlastní formát turnaje</div>
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <Users className="h-4 w-4 mr-1" />
+                          <span>Registrace</span>
+                        </div>
+                        <div className="font-medium">0 / 32</div>
+                        <Badge 
+                          variant="outline" 
+                          className="text-xs"
+                          style={{ 
+                            borderColor: getSportColor("padel", 0.3),
+                            color: getSportColor("padel") 
+                          }}
+                        >
+                          Volná místa
+                        </Badge>
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <Trophy className="h-4 w-4 mr-1" />
+                          <span>Startovné</span>
+                        </div>
+                        <div className="font-medium">790 Kč / hráče</div>
+                        <div className="flex items-center text-xs text-muted-foreground">
+                          <span>nebo </span>
+                          <TokenIcon className="h-3 w-3 mx-1" />
+                          <span>79 FitnessTokens</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="pt-2 space-y-2">
+                      <Button asChild className="w-full" variant="default">
+                        <Link href="/cs/turnaje/detail-turnaje/pad-1">Registrovat se</Link>
+                      </Button>
+                      <Button asChild className="w-full" variant="outline">
+                        <Link href="/cs/turnaje/detail-turnaje/pad-1">Detail turnaje</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Turnaj 2 */}
+                <Card className="h-full border-2 hover:border-primary/50 transition-colors">
+                  <CardHeader className="pb-2">
+                    <h3 className="text-xl font-bold">Letní Padel Cup 2025</h3>
+                    
+                    <div className="flex items-center text-sm space-x-4 mt-1 text-muted-foreground">
+                      <div className="flex items-center">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        <span>10.7.2025 - 11.7.2025</span>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        <MapPin className="h-4 w-4 mr-1" />
+                        <span>Padel Club Brno</span>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="pt-0 pb-4 space-y-4">
+                    <div className="flex items-center mt-2">
+                      <Avatar className="h-8 w-8 mr-2">
+                        <AvatarImage src="/images/organizers/default-logo.png" alt="Padel Club Brno" />
+                        <AvatarFallback className="bg-secondary">PC</AvatarFallback>
+                      </Avatar>
+                      <div className="text-sm">
+                        <div className="text-muted-foreground">Organizuje</div>
+                        <div>Padel Club Brno</div>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="space-y-1">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <Trophy className="h-4 w-4 mr-1" />
+                          <span>Formát turnaje</span>
+                        </div>
+                        <div className="font-medium">skupinový</div>
+                        <div className="text-xs text-muted-foreground">Vlastní formát turnaje</div>
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <Users className="h-4 w-4 mr-1" />
+                          <span>Registrace</span>
+                        </div>
+                        <div className="font-medium">0 / 24</div>
+                        <Badge 
+                          variant="outline" 
+                          className="text-xs"
+                          style={{ 
+                            borderColor: getSportColor("padel", 0.3),
+                            color: getSportColor("padel") 
+                          }}
+                        >
+                          Volná místa
+                        </Badge>
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <Trophy className="h-4 w-4 mr-1" />
+                          <span>Startovné</span>
+                        </div>
+                        <div className="font-medium">650 Kč / hráče</div>
+                        <div className="flex items-center text-xs text-muted-foreground">
+                          <span>nebo </span>
+                          <TokenIcon className="h-3 w-3 mx-1" />
+                          <span>65 FitnessTokens</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="pt-2 space-y-2">
+                      <Button asChild className="w-full" variant="default">
+                        <Link href="/cs/turnaje/detail-turnaje/pad-2">Registrovat se</Link>
+                      </Button>
+                      <Button asChild className="w-full" variant="outline">
+                        <Link href="/cs/turnaje/detail-turnaje/pad-2">Detail turnaje</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Turnaj 3 */}
+                <Card className="h-full border-2 hover:border-primary/50 transition-colors">
+                  <CardHeader className="pb-2">
+                    <h3 className="text-xl font-bold">Padel Liga Amatérů</h3>
+                    
+                    <div className="flex items-center text-sm space-x-4 mt-1 text-muted-foreground">
+                      <div className="flex items-center">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        <span>1.8.2025 - 31.8.2025</span>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        <MapPin className="h-4 w-4 mr-1" />
+                        <span>Více lokalit</span>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="pt-0 pb-4 space-y-4">
+                    <div className="flex items-center mt-2">
+                      <Avatar className="h-8 w-8 mr-2">
+                        <AvatarImage src="/images/organizers/sportmatch-logo.png" alt="SportMatch" />
+                        <AvatarFallback className="bg-secondary">SM</AvatarFallback>
+                      </Avatar>
+                      <div className="text-sm">
+                        <div className="text-muted-foreground">Organizuje</div>
+                        <div>SportMatch</div>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="space-y-1">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <Trophy className="h-4 w-4 mr-1" />
+                          <span>Formát turnaje</span>
+                        </div>
+                        <div className="font-medium">club cup</div>
+                        <div className="text-xs text-muted-foreground">Vlastní formát turnaje</div>
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <Users className="h-4 w-4 mr-1" />
+                          <span>Registrace</span>
+                        </div>
+                        <div className="font-medium">0 / 48</div>
+                        <Badge 
+                          variant="outline" 
+                          className="text-xs"
+                          style={{ 
+                            borderColor: getSportColor("padel", 0.3),
+                            color: getSportColor("padel") 
+                          }}
+                        >
+                          Volná místa
+                        </Badge>
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <Trophy className="h-4 w-4 mr-1" />
+                          <span>Startovné</span>
+                        </div>
+                        <div className="font-medium">450 Kč / hráče</div>
+                        <div className="flex items-center text-xs text-muted-foreground">
+                          <span>nebo </span>
+                          <TokenIcon className="h-3 w-3 mx-1" />
+                          <span>45 FitnessTokens</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="pt-2 space-y-2">
+                      <Button asChild className="w-full" variant="default">
+                        <Link href="/cs/turnaje/detail-turnaje/pad-3">Registrovat se</Link>
+                      </Button>
+                      <Button asChild className="w-full" variant="outline">
+                        <Link href="/cs/turnaje/detail-turnaje/pad-3">Detail turnaje</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          )}
+          
+          {/* Obsah záložky Trenéři */}
+          {activeTab === "coaches" && (
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold">Padel trenéři</h2>
+                <Link href={createLocalizedLink('/cs/treneri?sport=PAD', lang)}>
+                  <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+                    Všichni trenéři
+                    <ChevronRight className="ml-1.5 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {padelCoaches.map((coach) => (
+                  <Card key={coach.id} className="overflow-hidden hover:shadow-md transition-shadow">
+                    <div className="h-48 bg-gray-200 relative">
+                      <img
+                        src={coach.image || "/images/coach-default.jpg"}
+                        alt={coach.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div className="flex items-center text-amber-400 mb-1">
+                          <Star className="h-4 w-4 fill-current" />
+                          <span className="text-white text-sm ml-1">{coach.rating} (hodnocení)</span>
+                        </div>
+                      </div>
+                    </div>
+                    <CardContent className="p-4">
+                      <h3 className="font-bold mb-1 text-gray-900">{coach.name}</h3>
+                      <p className="text-gray-600 text-sm mb-2">{coach.specialization}</p>
+                      <div className="flex items-center text-gray-600 mb-3 text-sm">
+                        <MapPin className="h-4 w-4 mr-1" />
+                        {coach.location}
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-gray-600">
+                          {coach.hourlyRate}
+                        </span>
+                        <Link href={createLocalizedLink(`/cs/treneri/${coach.id}`, lang)}>
+                          <Button size="sm" className="bg-teal-600 hover:bg-teal-700 text-white">
+                            Rezervovat hodinu
+                          </Button>
+                        </Link>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
+          
+          {/* Obsah záložky Najít hráče */}
+          {activeTab === "players" && (
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold">Najít spoluhráče na padel</h2>
+                <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+                  Upravit můj profil
+                  <ChevronRight className="ml-1.5 h-4 w-4" />
+                </Button>
+              </div>
+              <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200 mb-6 flex items-center">
+                <Info className="h-6 w-6 text-yellow-500 mr-3 flex-shrink-0" />
+                <p className="text-yellow-700">
+                  Pro vyhledání spoluhráčů pro padel se prosím přihlaste. Tato funkce vám umožní najít hráče podobné úrovně ve vašem okolí.
+                </p>
+              </div>
+              <div className="text-center py-8">
+                <div className="inline-block p-6 bg-gray-100 rounded-full mb-4">
+                  <Users className="h-12 w-12 text-gray-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Připojte se k padel komunitě</h3>
+                <p className="text-gray-600 max-w-md mx-auto mb-6">
+                  Najděte si spoluhráče pro padel, organizujte zápasy a sledujte své statistiky.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+                    Přihlásit se
+                  </Button>
+                  <Button variant="outline">
+                    Vytvořit účet
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          {/* Obsah záložky Video */}
+          {activeTab === "videostream" && (
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold">Padel video obsah</h2>
+                <div className="flex items-center">
+                  <span className="mr-3 text-sm font-medium">Zůstatek: <TokenIcon size="sm" /> {tokenBalance} FT</span>
+                  <Button onClick={handleBuyTokens} variant="outline" className="mr-2">
+                    <CreditCard className="h-4 w-4 mr-1" />
+                    Dobít tokeny
+                  </Button>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <Card className="overflow-hidden hover:shadow-md transition-shadow">
+                  <div className="h-48 bg-gray-200 relative">
+                    <img
+                      src="/images/videos/padel-basics.jpg"
+                      alt="Základy padelu pro začátečníky"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                      <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full">
+                        <Play className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                    <div className="absolute top-2 right-2 bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded flex items-center">
+                      <TokenIcon size="sm" />
+                      <span className="ml-1">5 FT</span>
+                    </div>
+                  </div>
+                  <CardContent className="p-4">
+                    <h3 className="font-bold mb-1 text-gray-900">Základy padelu pro začátečníky</h3>
+                    <p className="text-gray-600 text-sm mb-3">Kompletní video kurz základních technik a pravidel</p>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center text-gray-500 text-sm">
+                        <Clock className="h-4 w-4 mr-1" />
+                        <span>45 minut</span>
+                      </div>
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+                        <TokenIcon size="sm" className="mr-1" />
+                        Koupit za 5 FT
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="overflow-hidden hover:shadow-md transition-shadow">
+                  <div className="h-48 bg-gray-200 relative">
+                    <img
+                      src="/images/videos/padel-techniques.jpg"
+                      alt="Pokročilé techniky a strategie"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                      <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full">
+                        <Play className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                    <div className="absolute top-2 right-2 bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded flex items-center">
+                      <TokenIcon size="sm" />
+                      <span className="ml-1">8 FT</span>
+                    </div>
+                  </div>
+                  <CardContent className="p-4">
+                    <h3 className="font-bold mb-1 text-gray-900">Pokročilé techniky a strategie</h3>
+                    <p className="text-gray-600 text-sm mb-3">Zlepšete svou hru s profesionálními tipy</p>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center text-gray-500 text-sm">
+                        <Clock className="h-4 w-4 mr-1" />
+                        <span>60 minut</span>
+                      </div>
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+                        <TokenIcon size="sm" className="mr-1" />
+                        Koupit za 8 FT
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="overflow-hidden hover:shadow-md transition-shadow">
+                  <div className="h-48 bg-gray-200 relative">
+                    <img
+                      src="/images/videos/padel-championship.jpg"
+                      alt="Záznam: Czech Padel Championship 2025"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                      <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full">
+                        <Play className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                    <div className="absolute top-2 right-2 bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded flex items-center">
+                      <TokenIcon size="sm" />
+                      <span className="ml-1">12 FT</span>
+                    </div>
+                  </div>
+                  <CardContent className="p-4">
+                    <h3 className="font-bold mb-1 text-gray-900">Czech Padel Championship 2025</h3>
+                    <p className="text-gray-600 text-sm mb-3">Kompletní záznam finálového utkání</p>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center text-gray-500 text-sm">
+                        <Clock className="h-4 w-4 mr-1" />
+                        <span>90 minut</span>
+                      </div>
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+                        <TokenIcon size="sm" className="mr-1" />
+                        Koupit za 12 FT
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          )}
+          
+          {/* Obsah záložky Komunita */}
+          {activeTab === "community" && (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-2xl font-bold">Padelová komunita</h2>
+                  <Link href={createLocalizedLink('/cs/socialni-centrum?sport=PAD', lang)}>
+                    <Button className="bg-green-600 hover:bg-green-700 text-white">
+                      Přejít do Social Hub
+                      <ArrowRight className="ml-1.5 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
+                <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                  <div className="p-4 border-b border-gray-200 bg-gray-50">
+                    <h3 className="font-semibold text-lg">Novinky z padel komunity</h3>
+                  </div>
+                  <div className="divide-y divide-gray-100">
+                    <div className="p-4 hover:bg-gray-50 transition-colors">
+                      <div className="flex items-start">
+                        <Avatar className="h-10 w-10 mr-3">
+                          <AvatarImage src="/images/avatars/user1.jpg" alt="Petr Novák" />
+                          <AvatarFallback>PN</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="flex items-center">
+                            <h4 className="font-medium">Petr Novák</h4>
+                            <span className="mx-2 text-gray-400">•</span>
+                            <span className="text-gray-500 text-sm">před 2 hodinami</span>
+                          </div>
+                          <p className="mt-1">
+                            Právě jsem zakoupil novou padelovou raketu Wilson Bela - doporučuji všem, kdo hledají raketu pro střední úroveň!
+                          </p>
+                          <div className="mt-2 flex items-center text-gray-500 gap-4">
+                            <button className="flex items-center hover:text-blue-600">
+                              <Heart className="h-4 w-4 mr-1" />
+                              <span className="text-sm">24</span>
+                            </button>
+                            <button className="flex items-center hover:text-blue-600">
+                              <MessageCircle className="h-4 w-4 mr-1" />
+                              <span className="text-sm">8 komentářů</span>
+                            </button>
+                            <button className="flex items-center hover:text-blue-600">
+                              <Share2 className="h-4 w-4 mr-1" />
+                              <span className="text-sm">Sdílet</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-4 hover:bg-gray-50 transition-colors">
+                      <div className="flex items-start">
+                        <Avatar className="h-10 w-10 mr-3">
+                          <AvatarImage src="/images/avatars/user2.jpg" alt="Jana Malá" />
+                          <AvatarFallback>JM</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="flex items-center">
+                            <h4 className="font-medium">Jana Malá</h4>
+                            <span className="mx-2 text-gray-400">•</span>
+                            <span className="text-gray-500 text-sm">včera</span>
+                          </div>
+                          <p className="mt-1">
+                            Hledám spoluhráčku na pravidelné hraní v SC Trnovany Teplice, každý čtvrtek 18:00-19:00.
+                            Mám středně pokročilou úroveň. Ozvěte se do zpráv!
+                          </p>
+                          <div className="mt-2 flex items-center text-gray-500 gap-4">
+                            <button className="flex items-center hover:text-blue-600">
+                              <Heart className="h-4 w-4 mr-1" />
+                              <span className="text-sm">12</span>
+                            </button>
+                            <button className="flex items-center hover:text-blue-600">
+                              <MessageCircle className="h-4 w-4 mr-1" />
+                              <span className="text-sm">5 komentářů</span>
+                            </button>
+                            <button className="flex items-center hover:text-blue-600">
+                              <Share2 className="h-4 w-4 mr-1" />
+                              <span className="text-sm">Sdílet</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <Card className="overflow-hidden">
+                  <CardHeader className="bg-blue-50 p-4 border-b border-blue-100">
+                    <CardTitle className="text-lg font-semibold text-blue-800">Nadcházející akce</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                      <div className="flex items-center mb-2">
+                        <Calendar className="h-4 w-4 text-blue-500 mr-2" />
+                        <h3 className="font-medium">Padel workshop pro začátečníky</h3>
+                      </div>
+                      <div className="flex items-center text-gray-600 text-sm mb-1">
+                        <Clock className="h-3 w-3 mr-1" />
+                        <span>18. května 2025, 14:00</span>
+                      </div>
+                      <div className="flex items-center text-gray-600 text-sm">
+                        <MapPin className="h-3 w-3 mr-1" />
+                        <span>SC Trnovany Teplice</span>
+                      </div>
+                    </div>
+                    <div className="p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                      <div className="flex items-center mb-2">
+                        <Calendar className="h-4 w-4 text-blue-500 mr-2" />
+                        <h3 className="font-medium">Padel League 2025 - 1. kolo</h3>
+                      </div>
+                      <div className="flex items-center text-gray-600 text-sm mb-1">
+                        <Clock className="h-3 w-3 mr-1" />
+                        <span>24. května 2025, 9:00</span>
+                      </div>
+                      <div className="flex items-center text-gray-600 text-sm">
+                        <MapPin className="h-3 w-3 mr-1" />
+                        <span>Padel Arena Praha</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="overflow-hidden">
+                  <CardHeader className="bg-green-50 p-4 border-b border-green-100">
+                    <CardTitle className="text-lg font-semibold text-green-800">Padel skupiny</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-medium">Padel Praha - začátečníci</h3>
+                        <Badge className="bg-green-500">354 členů</Badge>
+                      </div>
+                      <p className="text-gray-600 text-sm mt-1">
+                        Skupina pro začínající hráče padelu v Praze
+                      </p>
+                    </div>
+                    <div className="p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-medium">Brno Padel Community</h3>
+                        <Badge className="bg-green-500">218 členů</Badge>
+                      </div>
+                      <p className="text-gray-600 text-sm mt-1">
+                        Vše o padelu v Brně a okolí
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Modální okno pro nákup tokenů */}
+      <BuyTokensModal
+        isOpen={isTokenModalOpen}
+        onClose={() => setIsTokenModalOpen(false)}
+        onPurchase={handleAddTokens}
+      />
+    </div>
+  );
+};
+
+export default PadelPage;
