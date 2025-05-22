@@ -1,0 +1,2672 @@
+
+
+
+
+<!doctype html>
+<html lang="cs" style="">
+
+<head>
+
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PHP9NKC');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="facebook-domain-verification" content="um752bfka7c1eg4gm7cw5ua1fg41gc" />
+    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="author" content="COEX">
+
+    
+    <title>Aktivity a místa | MultiSport</title>
+    <meta name="description" content="S kartou MultiSport můžete navštívit širokou škálu pohybových i relaxačních aktivit. Vyberte si v katalogu nebo je vyhledejte na mapě a užijte si volný čas :)">
+    <meta property="og:title" content="Aktivity a místa | MultiSport">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aktivity a místa | MultiSport">
+    <meta property="og:image" content="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/img/multisport-placeholder.png">
+    <meta property="og:description" content="S kartou MultiSport můžete navštívit širokou škálu pohybových i relaxačních aktivit. Vyberte si v katalogu nebo je vyhledejte na mapě a užijte si volný čas :)">
+
+
+    <!--FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/favicon/favicon-16x16.png">
+	<link rel="manifest" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/favicon/site.webmanifest">
+	<link rel="mask-icon" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/favicon/safari-pinned-tab.svg" color="#3642ae">
+	<link rel="shortcut icon" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/favicon/favicon.ico">
+	<meta name="msapplication-TileColor" content="#f2f2f2">
+	<meta name="msapplication-config" content="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#f2f2f2">
+    <link rel="icon" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/favicon/cropped-google-logo-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/favicon/cropped-google-logo-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/favicon/cropped-google-logo-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/favicon/cropped-google-logo-270x270.png" />
+
+    <!--CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/bootstrap/css/bootstrap.min.css?v=1.0">
+    <link rel="stylesheet" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/font-awesome/css/fontawesome-all.min.css?v=1.0">
+    <link rel="stylesheet" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/css/jquery.scrollbar.css?v=1.0">
+    <link rel="stylesheet" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/css/leaflet.css?v=1.1">
+    <link rel="stylesheet" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/css/style.css?v=1.0">
+    <link rel="stylesheet" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/css/toastr.css?v=1.0">
+    <link rel="stylesheet" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/css/style-multisport.css?v=1.2">
+    <link rel="stylesheet" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/css/navbar.css?v=1.1">
+    <link rel="stylesheet" href="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/css/navbar-override.css?v=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
+
+    <script src="https://api.mapy.cz/loader.js"></script>
+    <script>
+        Loader.apiKey = "eyJpIjozOCwiYyI6MTY0NjE0MTE4OH0.Ql2k46R67OAkrs5xyFv25HVNWlt8Fw263t67u4TeOuk";
+        Loader.load(null, {suggest:true})
+    </script>
+
+    <script>
+        window.mapycz_api_key = "eyJpIjozOCwiYyI6MTY0NjE0MTE4OH0.Ql2k46R67OAkrs5xyFv25HVNWlt8Fw263t67u4TeOuk";
+        window.allDataUrl = '/api/v1/facility/facilities/';
+        window.defaultMarkerImgUrl = "https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/img/marker-default-img.png";
+        window.searchQueryUrl = '/api/v1/facility/search/';
+        window.autocompleteUrl = "/api/v1/facility/autocomplete/";
+        window.categoryId = "";
+        window.activityId = "";
+        window.facilityId = "";
+        window.facilityLat = "";
+        window.facilityLng = "";
+        window.categoryLabel = "";
+        window.activityLabel = "";
+        window.facilityLabel = "";
+        window.searchTypeCategory = "ACTIVITY_CATEGORY";
+        window.searchTypeFacility = "FACILITY";
+        window.searchTypeActivity = "ACTIVITY";
+        window.automaticResultsActualizationLocationSearchPlaceholder = "Střed zobrazené mapy";
+        window.userLocationSearchPlaceholder  = "Vaše poloha";
+        window.location_icon_url = "https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/icons/svg/user_location.svg";
+        window.chosen_location_icon_url = "https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/icons/svg/chosen_location.svg";
+        window.title_prefix = "Aktivity a místa";
+        window.title_suffix = "MultiSport";
+        window.search_results_text_category_prefix = "Pro kategorii";
+        window.search_results_text_activity_prefix = "Pro aktivitu";
+        window.search_results_text_query_prefix = "Pro vyhledávaný text";
+        window.location_log_url = "/api/v1/log/location_search/";
+        window.facility_log_url = "/api/v1/log/facility_search/";
+        window.advanced_filter_air_condition_label = "Klimatizováno";
+        window.advanced_filter_kids_activities_label = "";
+        window.advanced_filter_seasonal_campaign_label = "Léto s MultiSportem";
+        window.advanced_filter_without_condition_number_person_label = "Bez podmínky minimálního počtu osob";
+        window.advanced_filter_without_additional_payment_label = "Bez dalších plateb";
+        window.advanced_filter_additional_payment_label = "S doplatkem";
+        window.advanced_filter_unlimited_oh_label = "Provoz 24/7";
+        window.advanced_filter_self_service_label = "Bezobslužný provoz";
+        window.advanced_filter_new_label = "";
+        window.facility_url_copy_info_text = "Odkaz byl zkopírován do schránky";
+        window.user_location_popover_text = 'Chcete hledat ve svém okolí?';
+        window.card_first_time_info_popover_text = 'Nastavte si výběr svého produktu';
+        window.prefilled_cards_info_popover_text = 'Zkontrolujte si výběr svého produktu';
+        window.mapCenterLatitude = 49.981466369629;
+        window.mapCenterLongitude = 15.544777526853;
+        window.smapCategory = 'address_cz,municipality_cz,quarter_cz,address_sk,municipality_sk,quarter_sk';  
+        window.smapLang = 'cs';
+        window.countryCode = 'CZ';
+        window.country = "Czechia";
+        window.otherActiveCardsTogglerText = "Podrobnosti k dalším produktům";
+        window.show_seasonal_campaigns = false;
+
+        window.mapyCzLogo = "https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/img/mapy-cz-logo-outline.svg";
+
+        var userAuthenticatedEvent = new CustomEvent("userAuthenticated", {detail: {}});
+        window.refreshTokenTimeout = 51000;
+        window.jwt_token_url = '/api/v1/token/';
+        window.jwt_refresh_token_url = '/api/v1/token/refresh/';
+        window.salt = "McTem9Lx5tY4eMKDAlZG6xBhz78cyFcwoO672QwADrhMOLAw55K2aPUNEJ92gPgw";
+        var n1 = new Date(1747141488754).getTime();
+        var n2 = new Date().getTime();
+        window.offset = n1 - n2; 
+        window.isSecure = window.location.href.indexOf("https://") === 0;
+        window.iframeEmbedType = null;
+
+    </script>
+</head>
+
+<body style="">
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHP9NKC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- WRAPPER
+=====================================================================================================================-->
+<div class="ts-page-wrapper ts-homepage ts-full-screen-page" id="page-top" style="">
+
+    <!--*********************************************************************************************************-->
+    <!--HEADER **************************************************************************************************-->
+    <!--*********************************************************************************************************-->
+    <header class="navbar navbar--bg-gray-100">
+
+        <!--PRIMARY NAVIGATION
+        =============================================================================================================-->
+                    
+            <div class="container h-100">
+                <div class="row align-items-center h-100">
+                <div class="col-7 col-xl-3 col-xxl-2 col-3xl-auto">
+                    <a href="https://multisport.cz" class="logo">
+                    <img
+                        class="img-fluid"
+                        alt="MultiSport"
+                        src="https://multisport.cz/wp-content/themes/dootheme/dist/svg/multisport.svg"
+                        width="176"
+                        height="37"
+                    />
+                    </a>
+                </div>
+                <div
+                    class="col-5 col-xl-9 col-xxl-10 col-3xl-auto flex-3xl-grow-1 ps-xxl-0 d-flex justify-content-end gap-2"
+                    style=""
+                >
+                    
+                    
+
+<!--LEFT NAVIGATION MAIN LEVEL -->
+
+<nav class="topMenu">
+    <ul id="menu-hlavni-navigace" class="topMenu-menu">
+
+    
+
+        
+            
+
+<li
+  id="menu-item-3965"
+  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3965"
+>
+  <a href="#" data-title="Karta MultiSport"
+    ><span>Karta MultiSport</span
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="8"
+      viewBox="0 0 14 8"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M.267.27a.91.91 0 011.293 0l5.451 5.503L12.461.27a.91.91 0 011.271.023.928.928 0 01.023 1.282L7.657 7.73a.91.91 0 01-1.292 0L.267 1.575a.928.928 0 010-1.305z"
+      ></path>
+    </svg>
+  </a>
+  <ul class="sub-menu">
+    <li
+      id="menu-item-23"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"
+    >
+      <a
+        href="https://multisport.cz/pro-zamestnavatele/"
+        data-title="Pro zaměstnavatele"
+        ><span>Pro zaměstnavatele</span></a
+      >
+    </li>
+    <li
+      id="menu-item-22"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"
+    >
+      <a
+        href="https://multisport.cz/pro-zamestnance/"
+        data-title="Pro zaměstnance"
+        ><span>Pro zaměstnance</span></a
+      >
+    </li>
+    <li
+      id="menu-item-3966"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3966"
+    >
+      <a href="https://multisport.cz/student/" data-title="Pro studenty"
+        ><span>Pro studenty</span></a
+      >
+    </li>
+    <li
+      id="menu-item-21"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"
+    >
+      <a href="https://multisport.cz/pro-partnery/" data-title="Pro partnery"
+        ><span>Pro partnery</span></a
+      >
+    </li>
+  </ul>
+</li>
+<li
+  id="menu-item-3320"
+  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3320"
+>
+  <a href="#" data-title="Eventy"
+    ><span>Eventy</span
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="8"
+      viewBox="0 0 14 8"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M.267.27a.91.91 0 011.293 0l5.451 5.503L12.461.27a.91.91 0 011.271.023.928.928 0 01.023 1.282L7.657 7.73a.91.91 0 01-1.292 0L.267 1.575a.928.928 0 010-1.305z"
+      ></path>
+    </svg>
+  </a>
+  <ul class="sub-menu">
+    <li
+      id="menu-item-3694"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3694"
+    >
+      <a href="https://multisport.cz/events/" data-title="MultiSport Eventy"
+        ><span>MultiSport Eventy</span></a
+      >
+    </li>
+    <li
+      id="menu-item-3702"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3702"
+    >
+      <a
+        href="https://multisport.cz/events/sportovni-aktivity/"
+        data-title="Sportovní aktivity"
+        ><span>Sportovní aktivity</span></a
+      >
+    </li>
+    <li
+      id="menu-item-3701"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3701"
+    >
+      <a
+        href="https://multisport.cz/events/zdravotni-aktivity/"
+        data-title="Zdravotní aktivity"
+        ><span>Zdravotní aktivity</span></a
+      >
+    </li>
+    <li
+      id="menu-item-3700"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3700"
+    >
+      <a
+        href="https://multisport.cz/events/dusevni-zdravi/"
+        data-title="Duševní zdraví"
+        ><span>Duševní zdraví</span></a
+      >
+    </li>
+    <li
+      id="menu-item-3699"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3699"
+    >
+      <a
+        href="https://multisport.cz/events/vyzivove-workshopy/"
+        data-title="Výživové workshopy"
+        ><span>Výživové workshopy</span></a
+      >
+    </li>
+    <li
+      id="menu-item-3698"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3698"
+    >
+      <a
+        href="https://multisport.cz/events/specialni-workshopy/"
+        data-title="Speciální workshopy"
+        ><span>Speciální workshopy</span></a
+      >
+    </li>
+    <li
+      id="menu-item-3697"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3697"
+    >
+      <a
+        href="https://multisport.cz/events/teambuildingy/"
+        data-title="Teambuildingy"
+        ><span>Teambuildingy</span></a
+      >
+    </li>
+    <li
+      id="menu-item-3696"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3696"
+    >
+      <a
+        href="https://multisport.cz/events/family-days/"
+        data-title="Family days"
+        ><span>Family days</span></a
+      >
+    </li>
+    <li
+      id="menu-item-3695"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3695"
+    >
+      <a
+        href="https://multisport.cz/events/networkingove-akce/"
+        data-title="Networkingové akce"
+        ><span>Networkingové akce</span></a
+      >
+    </li>
+  </ul>
+</li>
+<li
+  id="menu-item-25"
+  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25"
+>
+  <a
+    target="_blank"
+    rel="noopener"
+    href="https://my.multisport.cz/"
+    data-title="My MultiSport"
+    ><span>My MultiSport</span></a
+  >
+</li>
+<li
+  id="menu-item-51"
+  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-51"
+>
+  <a
+    target="_blank"
+    rel="noopener"
+    href="https://mapa.multisport.cz/cs/"
+    data-title="Mapa aktivit"
+    ><span>Mapa aktivit</span></a
+  >
+</li>
+<li
+  id="menu-item-20"
+  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"
+>
+  <a href="https://multisport.cz/kariera/" data-title="Kariéra"
+    ><span>Kariéra</span></a
+  >
+</li>
+<li
+  id="menu-item-1846"
+  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1846"
+>
+  <a href="#" data-title="O MultiSportu"
+    ><span>O MultiSportu</span
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="8"
+      viewBox="0 0 14 8"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M.267.27a.91.91 0 011.293 0l5.451 5.503L12.461.27a.91.91 0 011.271.023.928.928 0 01.023 1.282L7.657 7.73a.91.91 0 01-1.292 0L.267 1.575a.928.928 0 010-1.305z"
+      ></path>
+    </svg>
+  </a>
+  <ul class="sub-menu">
+    <li
+      id="menu-item-3189"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3189"
+    >
+      <a href="https://multisport.cz/o-multisportu/" data-title="O nás"
+        ><span>O nás</span></a
+      >
+    </li>
+    <li
+      id="menu-item-50"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50"
+    >
+      <a href="https://multisport.cz/blog/" data-title="Blog"
+        ><span>Blog</span></a
+      >
+    </li>
+    <li
+      id="menu-item-44"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"
+    >
+      <a href="https://multisport.cz/faq/" data-title="FAQ"><span>FAQ</span></a>
+    </li>
+    <li
+      id="menu-item-43"
+      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"
+    >
+      <a href="https://multisport.cz/kontakty/" data-title="Kontakty"
+        ><span>Kontakty</span></a
+      >
+    </li>
+  </ul>
+</li>
+
+        
+
+
+       
+    </ul>
+</nav>
+
+<nav class="languages d-none d-sm-flex" id="languages">
+    
+        <a
+            href="/cs/"
+            lang="cs"
+            hreflang="cs"
+            aria-label="Přepnout do jazyka cs"
+            data-title="CZ"            
+            class="active"
+        >
+            <span>CZ</span>
+        </a>     
+    
+        <a
+            href="/en/"
+            lang="en"
+            hreflang="en"
+            aria-label="Přepnout do jazyka en"
+            data-title="EN"            
+            class=""
+        >
+            <span>EN</span>
+        </a>     
+     
+</nav>
+<!--end Left navigation main level-->                      
+                    
+                    
+                    <div id="id_mobile_search_form_card_toggler" class="d-block d-md-none ml-auto search-form-toggler search-form-cards-toggler">
+                        <button class="d-flex align-items-center justify-content-center" id="id_card_mobile_button" type="button" data-toggle="collapse" data-target="#form-cards-collapse">
+                            <i class="fas fa-id-card"></i>
+                        </button>
+                    </div>
+
+                    <div id="id_mobile_search_form_toggler" class="d-block d-md-none search-form-toggler">
+                        <button class="d-flex align-items-center justify-content-center" id="id_search_button" type="button" data-toggle="collapse" data-target="#form-collapse">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                
+
+                    <button class="burger" data-toggle-overlay="topMenu">
+                    <svg class="burger__icon" viewBox="0 0 100 100" width="80">
+                        <path
+                            class="burger__line burger__line--top"
+                            d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013"
+                        ></path>
+                        <path
+                            class="burger__line burger__line--middle"
+                            d="m 70,50 h -40"
+                        ></path>
+                        <path
+                            class="burger__line burger__line--bottom"
+                            d="m 69.575405,67.073826 h -40 c -5.592752,0 -6.873604,-9.348582 1.371031,-9.348582 8.244634,0 19.053564,21.797129 19.053564,12.274756 l 0,-40"
+                        ></path>
+                    </svg>
+                    </button>
+                </div>
+                </div>
+            </div>    
+        
+
+    </header>
+    <!--end Header-->
+
+    
+    <!-- FORM
+    =========================================================================================================-->
+    <section class="ts-shadow__sm ts-z-index__2 search-form-holder">
+        <div class="mobile-results-actualisation">
+            <div class="search-form-inner results-actualisation" id="id_div_results_actualization_mobile" style="display: none">
+                <div class="d-flex align-items-center">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="resultsActualisation_mobile">
+                        <label class="form-check-label" for="resultsActualisation_mobile">Automaticky aktualizovat polohu</label>
+                    </div>
+                </div>
+            </div>
+            <div class="search-form-inner results-actualisation a" style="display: none" id="id_div_results_actualization_active_mobile">
+                <div class="d-flex align-items-center">
+                    <a id="id_results_actualization_active_link_mobile">
+                        <div class="form-check d-flex align-items-center">
+                            <span class="form-check-input">
+                                <i class="fas fa-sync-alt"></i>
+                            </span>
+                            <label class="form-check-label">Aktualizovat výsledky vyhledávání</label>
+                        </div>
+                    </a>
+                    <a href="" id="id_actualization_active_reset_link_mobile" >
+                        <span class="d-flex align-items-center justify-content-center icon-wrapper-small">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--Form-->
+        <!-- LOCATION AND FACILITIES
+        =====================================================================================================-->
+        
+            <div id="form-collapse" class="collapse ts-md-hide-collapse position-absolute search-form-wrapper">
+                <div class="d-md-flex flex-md-column flex-lg-column flex-xl-row">
+                    <form class="ts-form search-form search-form-location sys-search-form-location mb-sm-3">
+                        <div class="search-form-inner">
+                            <div>
+                                <div class="pl-2 pr-2 pt-1 pb-1 d-flex align-items-center input-wrapper">
+                                    <a class="d-flex align-items-center justify-content-center" id="id_user_location" href="">
+                                        <span class="d-flex align-items-center justify-content-center icon-wrapper">
+                                            <i class="fas fa-crosshairs" id="id_user_location_icon"></i>
+                                        </span>
+                                    </a>
+                                    <input type="text" class="form-control" id="id_location_search" name="location_search" autocomplete="off" placeholder="Vyhledejte město, adresu">
+                                    <div id="id_div_location_search_reset" style="display: none">
+                                        <a class="d-flex align-items-center justify-content-center" id="id_location_search_reset" href="" style="display: none">
+                                            <span class="d-flex align-items-center justify-content-center icon-wrapper">
+                                                <i class="fas fa-times"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="id_location_search-results-list-div" class="pt-2 location-results-list" style="display: none">
+                                    <div class="">
+                                        <ul id="id_location_search-result-list" style="display: none"></ul>
+                                        <ul id="id_default_location_search_list">
+                                            
+                                                <li>
+                                                    
+
+
+<a class="d-flex align-items-center" href="">
+    <span class="d-flex align-items-center justify-content-center icon-wrapper mr-1">
+        <i class="fas fa-map-marker-alt"></i>
+    </span>
+    <span class="search_item_label">Brno</span>
+    <span hidden="true" class="search_item_data" data-value="49.1944298, 16.6078941"></span>
+</a>
+
+                                                </li>
+                                            
+                                                <li>
+                                                    
+
+
+<a class="d-flex align-items-center" href="">
+    <span class="d-flex align-items-center justify-content-center icon-wrapper mr-1">
+        <i class="fas fa-map-marker-alt"></i>
+    </span>
+    <span class="search_item_label">Praha</span>
+    <span hidden="true" class="search_item_data" data-value="50.0874691, 14.4205521"></span>
+</a>
+
+                                                </li>
+                                            
+                                                <li>
+                                                    
+
+
+<a class="d-flex align-items-center" href="">
+    <span class="d-flex align-items-center justify-content-center icon-wrapper mr-1">
+        <i class="fas fa-map-marker-alt"></i>
+    </span>
+    <span class="search_item_label">Liberec</span>
+    <span hidden="true" class="search_item_data" data-value="50.7670911, 15.0544424"></span>
+</a>
+
+                                                </li>
+                                            
+                                                <li>
+                                                    
+
+
+<a class="d-flex align-items-center" href="">
+    <span class="d-flex align-items-center justify-content-center icon-wrapper mr-1">
+        <i class="fas fa-map-marker-alt"></i>
+    </span>
+    <span class="search_item_label">Olomouc</span>
+    <span hidden="true" class="search_item_data" data-value="49.5940507, 17.2521064"></span>
+</a>
+
+                                                </li>
+                                            
+                                                <li>
+                                                    
+
+
+<a class="d-flex align-items-center" href="">
+    <span class="d-flex align-items-center justify-content-center icon-wrapper mr-1">
+        <i class="fas fa-map-marker-alt"></i>
+    </span>
+    <span class="search_item_label">Ostrava</span>
+    <span hidden="true" class="search_item_data" data-value="49.8345309, 18.2871039"></span>
+</a>
+
+                                                </li>
+                                            
+                                        </ul>
+                                        <div id="id_locality_search_empty_autocomplete_results_div" style="display: none">
+                                            
+
+<div class="p-3 empty-autocomplete-text" >
+  Nenalezeny žádné výsledky
+</div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="ts-form search-form search-form-facilities sys-search-form-facilities">
+                        <div class="search-form-inner">
+                            <div>
+                                <div class="pl-2 pr-0 pt-1 pb-1 d-flex align-items-center input-wrapper">
+                                    <span class="d-flex align-items-center justify-content-center" id="id_search_trigger" href="">
+                                        <span class="d-flex align-items-center justify-content-center icon-wrapper">
+                                            <i class="fas fa-search"></i>
+                                        </span>
+                                    </span>
+                                    <input type="text" class="form-control" id="id_facility_search" name="facility_search" autocomplete="off" placeholder="Vyhledejte aktivity a sportoviště">
+                                    <div id="id_div_facility_search_reset" style="display: none">
+                                        <a class="d-flex align-items-center justify-content-center" id="id_facility_search_reset" href="">
+                                            <span class="d-flex align-items-center justify-content-center mr-1 icon-wrapper">
+                                                <i class="fas fa-times"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <span class="d-flex align-items-center justify-content-center ml-auto">
+                                        <a class="icon-right-wrapper" href="#" id="id_advanced_filters_toggler"><i class="fas fa-filter"></i>
+                                            <div id="id_div_advanced_filters_activated" class="advanced-filters-activated" style="display: none"></div>
+                                        </a>
+                                    </span>
+                                    <div id="id_div_advanced_filters" class="search-filters advanced-filters" style="display: none">
+                                        <ul class="list-unstyled">
+
+                                            
+                                                <li class="d-flex align-items-center justify-content-between">
+                                                    <label for="id_seasonal_campaign" class="checkbox-container d-flex align-items-center justify-content-between">
+                                                        <span class="adv-filter-name">Léto s MultiSportem</span>
+                                                        <input class="sys-advanced-filter"
+                                                               type="checkbox"
+                                                               data-filter-type="normal"
+                                                               data-filter-label="seasonal_campaign"
+                                                               data-filter-name="seasonal_campaign"
+                                                               id="id_seasonal_campaign">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                                <li class="d-flex align-items-center justify-content-between">
+                                                    <label for="id_without_additional_payment" class="checkbox-container d-flex align-items-center justify-content-between">
+                                                        <span class="adv-filter-name">Bez dalších plateb</span>
+                                                        <input class="sys-advanced-filter"
+                                                               type="checkbox"
+                                                               data-filter-type="normal"
+                                                               data-filter-label="without_additional_payment"
+                                                               data-filter-name="without_additional_payment"
+                                                               id="id_without_additional_payment">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                                <li class="d-flex align-items-center justify-content-between">
+                                                    <label for="id_additional_payment" class="checkbox-container d-flex align-items-center justify-content-between">
+                                                        <span class="adv-filter-name">S doplatkem</span>
+                                                        <input class="sys-advanced-filter"
+                                                               type="checkbox"
+                                                               data-filter-type="normal"
+                                                               data-filter-label="additional_payment"
+                                                               data-filter-name="additional_payment"
+                                                               id="id_additional_payment">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                                <li class="d-flex align-items-center justify-content-between">
+                                                    <label for="id_without_condition_number_person" class="checkbox-container d-flex align-items-center justify-content-between">
+                                                        <span class="adv-filter-name">Bez podmínky minimálního počtu osob</span>
+                                                        <input class="sys-advanced-filter"
+                                                               type="checkbox"
+                                                               data-filter-type="normal"
+                                                               data-filter-label="without_condition_number_person"
+                                                               data-filter-name="without_condition_number_person"
+                                                               id="id_without_condition_number_person">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                                <li class="d-flex align-items-center justify-content-between">
+                                                    <label for="id_air_condition" class="checkbox-container d-flex align-items-center justify-content-between">
+                                                        <span class="adv-filter-name">Klimatizováno</span>
+                                                        <input class="sys-advanced-filter"
+                                                               type="checkbox"
+                                                               data-filter-type="normal"
+                                                               data-filter-label="air_condition"
+                                                               data-filter-name="air_condition"
+                                                               id="id_air_condition">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                                <li class="d-flex align-items-center justify-content-between">
+                                                    <label for="id_unlimited_oh" class="checkbox-container d-flex align-items-center justify-content-between">
+                                                        <span class="adv-filter-name">Provoz 24/7</span>
+                                                        <input class="sys-advanced-filter"
+                                                               type="checkbox"
+                                                               data-filter-type="normal"
+                                                               data-filter-label="unlimited_oh"
+                                                               data-filter-name="unlimited_oh"
+                                                               id="id_unlimited_oh">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                                <li class="d-flex align-items-center justify-content-between">
+                                                    <label for="id_self_service" class="checkbox-container d-flex align-items-center justify-content-between">
+                                                        <span class="adv-filter-name">Bezobslužný provoz</span>
+                                                        <input class="sys-advanced-filter"
+                                                               type="checkbox"
+                                                               data-filter-type="normal"
+                                                               data-filter-label="self_service"
+                                                               data-filter-name="self_service"
+                                                               id="id_self_service">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                            <li class="d-flex align-items-center justify-content-between">
+                                                <button id="id_advanced_filter_button" type="button" class="btn">
+                                                    Potvrdit výběr
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="id_facility_search-results-list-div" class="pt-2 results-list"
+                                     style="display: none; padding-bottom: 0">
+                                    <ul id="id_facility_search-result-list" class="p-2" style="display: none"></ul>
+                                    <ul id="id_default_facility_search-result-list" class="p-2">
+                                        
+                                            
+                                                <li>
+                                            
+                                                
+
+
+    
+        <a class="d-flex align-items-center" href="">
+            
+                <div>
+                    <div class="facility-icon-wrapper kolecka-posilovny_a_silove_treninky"></div>
+                </div>
+            
+            <span class="search_item_label">Posilovna</span>
+            <span hidden="true" class="search_item_data" data-search_type="ACTIVITY" data-search_obj_id="127" data-url="/cs/activity/posilovna-127"></span>
+        </a>
+    
+
+
+                                            </li>
+                                        
+                                            
+                                                <li>
+                                            
+                                                
+
+
+    
+        <a class="d-flex align-items-center" href="">
+            
+                <div>
+                    <div class="facility-icon-wrapper kolecka-wellness_a_relax"></div>
+                </div>
+            
+            <span class="search_item_label">Sauna/Pára</span>
+            <span hidden="true" class="search_item_data" data-search_type="ACTIVITY" data-search_obj_id="142" data-url="/cs/activity/saunapara-142"></span>
+        </a>
+    
+
+
+                                            </li>
+                                        
+                                            
+                                                <li>
+                                            
+                                                
+
+
+    
+        <a class="d-flex align-items-center" href="">
+            
+                <div>
+                    <div class="facility-icon-wrapper kolecka-bazeny_a_vodni_sporty"></div>
+                </div>
+            
+            <span class="search_item_label">Bazén</span>
+            <span hidden="true" class="search_item_data" data-search_type="ACTIVITY" data-search_obj_id="13" data-url="/cs/activity/bazen-13"></span>
+        </a>
+    
+
+
+                                            </li>
+                                        
+                                            
+                                                <li class="sys-default-search_item_mobile_hidden">
+                                            
+                                                
+
+
+    
+        <a class="d-flex align-items-center" href="">
+            
+                <div>
+                    <div class="facility-icon-wrapper kolecka-joga_a_zdravotni_cviceni"></div>
+                </div>
+            
+            <span class="search_item_label">Jóga</span>
+            <span hidden="true" class="search_item_data" data-search_type="ACTIVITY" data-search_obj_id="192" data-url="/cs/activity/joga-192"></span>
+        </a>
+    
+
+
+                                            </li>
+                                        
+                                            
+                                                <li class="sys-default-search_item_mobile_hidden">
+                                            
+                                                
+
+
+    
+        <a class="d-flex align-items-center" href="">
+            
+                <div>
+                    <div class="facility-icon-wrapper kolecka-skupinove_a_tanecni_lekce"></div>
+                </div>
+            
+            <span class="search_item_label">Kruhový trénink</span>
+            <span hidden="true" class="search_item_data" data-search_type="ACTIVITY" data-search_obj_id="104" data-url="/cs/activity/kruhovy-trenink-104"></span>
+        </a>
+    
+
+
+                                            </li>
+                                        
+                                            
+                                                <li class="sys-default-search_item_mobile_hidden">
+                                            
+                                                
+
+
+    
+        <a class="d-flex align-items-center" href="">
+            
+                <div>
+                    <div class="facility-icon-wrapper point_modry-mix_aktivit align-self-start"></div>
+                </div>
+            
+            <span class="search_item_label">YMCA</span>
+            <span hidden="true" class="search_item_data" data-search_type="FACILITY" data-search_obj_id="1175" data-url="/cs/ymca-1175"></span>
+        </a>
+    
+
+
+                                            </li>
+                                        
+                                            
+                                                <li class="sys-default-search_item_mobile_hidden">
+                                            
+                                                
+
+
+    
+        <a class="d-flex align-items-center" href="">
+            
+                <div>
+                    <div class="facility-icon-wrapper point_modry-mix_aktivit align-self-start"></div>
+                </div>
+            
+            <span class="search_item_label">Hotel Olšanka</span>
+            <span hidden="true" class="search_item_data" data-search_type="FACILITY" data-search_obj_id="1377" data-url="/cs/hotel-olsanka-1377"></span>
+        </a>
+    
+
+
+                                            </li>
+                                        
+                                            
+                                                <li class="sys-default-search_item_mobile_hidden">
+                                            
+                                                
+
+
+    
+        <a class="d-flex align-items-center" href="">
+            
+                <div>
+                    <div class="facility-icon-wrapper point_modry-mix_aktivit align-self-start"></div>
+                </div>
+            
+            <span class="search_item_label">Top Deck wellness a fitness centrum (Panorama Hotel Prague)</span>
+            <span hidden="true" class="search_item_data" data-search_type="FACILITY" data-search_obj_id="1091" data-url="/cs/top-deck-wellness-a-fitness-centrum-panorama-hotel-prague-1091"></span>
+        </a>
+    
+
+
+                                            </li>
+                                        
+                                    </ul>
+                                    <div id="id_facility_search_empty_autocomplete_results_div" style="display: none">
+                                        
+
+<div class="p-3 empty-autocomplete-text" >
+  Nenalezeny žádné výsledky
+</div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        
+        <!-- CARDS
+        =====================================================================================================-->
+        
+            <div id="form-cards-collapse" class="collapse ts-md-hide-collapse position-absolute search-form-wrapper search-form-wrapper-cards">
+                <div class="d-md-flex flex-md-row flex-lg-column flex-xl-row">
+                    <form class="ts-form search-form search-form-cards sys-search-form-cards">
+                        <div class="search-form-inner-cards">
+                            <div>
+                                <div class="d-flex flex-column align-items-center input-wrapper">
+                                    <span class="d-none d-sm-flex align-items-center justify-content-center ml-auto">
+                                        <a class="icon-right-wrapper" href="#" id="id_card_filters_toggler"><i class="fas fa-id-card"></i>
+                                            <div id="id_div_card_filters_activated" class="card-filters-activated" style="display: none"></div>
+                                        </a>
+                                    </span>
+                                    <div id="id_div_card_filters" class="search-filters card-filters" style="display: none">
+                                        <ul class="list-unstyled">
+
+                                            
+                                                <li>
+                                                    <label for="id_card_1" class="checkbox-container">
+                                                        <span class="d-flex align-items-center justify-content-between pr-4">
+                                                            <img src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/media/cards/silvercard_small.png" alt="Stříbrná" width="60" height="37">
+                                                            <span class="card-name">Stříbrná</span>
+                                                        </span>
+                                                    <input class="sys-card-filter"
+                                                               type="checkbox"
+                                                               data-filter-label="cards"
+                                                               data-filter-value="1"
+                                                               id="id_card_1">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                                <li>
+                                                    <label for="id_card_2" class="checkbox-container">
+                                                        <span class="d-flex align-items-center justify-content-between pr-4">
+                                                            <img src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/media/cards/kidscard_small.png" alt="Dítě" width="60" height="37">
+                                                            <span class="card-name">Dítě</span>
+                                                        </span>
+                                                    <input class="sys-card-filter"
+                                                               type="checkbox"
+                                                               data-filter-label="cards"
+                                                               data-filter-value="2"
+                                                               id="id_card_2">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                                <li>
+                                                    <label for="id_card_6" class="checkbox-container">
+                                                        <span class="d-flex align-items-center justify-content-between pr-4">
+                                                            <img src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/media/cards/litecard_small_y8ovamO.png" alt="LITE" width="60" height="37">
+                                                            <span class="card-name">LITE</span>
+                                                        </span>
+                                                    <input class="sys-card-filter"
+                                                               type="checkbox"
+                                                               data-filter-label="cards"
+                                                               data-filter-value="6"
+                                                               id="id_card_6">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                                <li>
+                                                    <label for="id_card_4" class="checkbox-container">
+                                                        <span class="d-flex align-items-center justify-content-between pr-4">
+                                                            <img src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/media/cards/studentcard_small.png" alt="Student" width="60" height="37">
+                                                            <span class="card-name">Student</span>
+                                                        </span>
+                                                    <input class="sys-card-filter"
+                                                               type="checkbox"
+                                                               data-filter-label="cards"
+                                                               data-filter-value="4"
+                                                               id="id_card_4">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                                <li>
+                                                    <label for="id_card_3" class="checkbox-container">
+                                                        <span class="d-flex align-items-center justify-content-between pr-4">
+                                                            <img src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/media/cards/fkspcard_small.png" alt="FKSP" width="60" height="37">
+                                                            <span class="card-name">FKSP</span>
+                                                        </span>
+                                                    <input class="sys-card-filter"
+                                                               type="checkbox"
+                                                               data-filter-label="cards"
+                                                               data-filter-value="3"
+                                                               id="id_card_3">
+                                                        <span class="checkmark">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            
+                                                <li class="d-flex align-items-center justify-content-between">
+                                                    <button id="id_card_filter_button" type="button" class="btn">
+                                                        Potvrdit výběr
+                                                    </button>
+                                                </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
+        <!--end Form-->
+
+    </section>
+    <!--end ts-form__grid-->
+
+    <!-- HERO MAP
+    =================================================================================================================-->
+    <section id="ts-hero" class="mb-0" style="">
+
+        <!--Fullscreen mode-->
+        <div class="ts-full-screen d-flex flex-column" style="">
+
+            <!-- RESULTS & MAP
+            =========================================================================================================-->
+            <div class="d-flex h-100" style="">
+                <!-- RESULTS LEFT
+                =====================================================================================================-->
+                
+                    <div class="sidebar">
+                        <div id="id_search_results_sidebar_header" style="display: none; padding-bottom: 0">
+                            
+
+
+<div class="content">
+    <h1>Výsledky vyhledávání</h1>
+    <p> </p>
+    <p>
+        
+            
+        
+        
+    </p>
+    <p>
+        
+            
+        
+        
+    </p>
+</div>
+
+                        </div>
+                        <section id="ts-results" class="with-banner">
+                            <div class="drag-top"><div class="drag-chip"></div></div>
+                            <div id="id_sidebar_container">
+                            
+    
+
+
+<div class="catalogue">
+    <div class="ts-results-wrapper">
+        <div class="content">
+            <h1>Katalog aktivit</h1>
+            <p>S kartou MultiSport můžete navštívit širokou škálu pohybových i relaxačních aktivit. Vyberte si v katalogu nebo je vyhledejte na mapě a užijte si volný čas :)</p>
+        </div>
+        <div class="ts-result-link">
+            
+                
+                    
+                        <div href="#" class="card ts-item ts-card ts-result row no-gutters d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                                <div>
+                                    <div class="facility-icon-wrapper kolecka-bazeny_a_vodni_sporty"></div>
+                                </div>
+                                <div class="ml-2">
+                                    <a href="" class="title sys-search-item" data-id="1" data-search_type="ACTIVITY_CATEGORY" data-url="/cs/category/bazeny-a-vodni-sporty-1">Bazény a vodní sporty</a>
+                                    <div class="activities cat-1">
+                                        
+                                            <a href="" class="sys-search-item" data-id="9" data-search_type="ACTIVITY" data-url="/cs/activity/aquapark-9">Aquapark</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="13" data-search_type="ACTIVITY" data-url="/cs/activity/bazen-13">Bazén</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="213" data-search_type="ACTIVITY" data-url="/cs/activity/biotop-213">Biotop</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="92" data-search_type="ACTIVITY" data-url="/cs/activity/kajak-leto-92">Kajak (léto)</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="112" data-search_type="ACTIVITY" data-url="/cs/activity/letni-koupaliste-leto-112">Letní koupaliště (léto)</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="118" data-search_type="ACTIVITY" data-url="/cs/activity/paddle-board-leto-118">Paddle board (léto)</a>
+                                        
+                                    </div>
+                                    <a class="all-activities show-more" style="display: none">Zobrazit všechny aktivity</a>
+                                    <a class="all-activities show-less" style="display: none">Zobrazit méně aktivit</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        <div href="#" class="card ts-item ts-card ts-result row no-gutters d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                                <div>
+                                    <div class="facility-icon-wrapper kolecka-rodice_s_detmi"></div>
+                                </div>
+                                <div class="ml-2">
+                                    <a href="" class="title sys-search-item" data-id="2" data-search_type="ACTIVITY_CATEGORY" data-url="/cs/category/rodice-s-detmi-2">Rodiče s dětmi</a>
+                                    <div class="activities cat-2">
+                                        
+                                            <a href="" class="sys-search-item" data-id="202" data-search_type="ACTIVITY" data-url="/cs/activity/cviceni-pro-deti-202">Cvičení pro děti</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="42" data-search_type="ACTIVITY" data-url="/cs/activity/cviceni-pro-maminky-s-detmi-42">Cvičení pro maminky s dětmi</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="195" data-search_type="ACTIVITY" data-url="/cs/activity/detska-herna-195">Dětská herna</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="47" data-search_type="ACTIVITY" data-url="/cs/activity/detska-joga-47">Dětská jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="201" data-search_type="ACTIVITY" data-url="/cs/activity/detsky-park-201">Dětský park</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="58" data-search_type="ACTIVITY" data-url="/cs/activity/fitmami-58">fitMami</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="101" data-search_type="ACTIVITY" data-url="/cs/activity/kojenecke-plavani-101">Kojenecké plavání</a>
+                                        
+                                    </div>
+                                    <a class="all-activities show-more" style="display: none">Zobrazit všechny aktivity</a>
+                                    <a class="all-activities show-less" style="display: none">Zobrazit méně aktivit</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        <div href="#" class="card ts-item ts-card ts-result row no-gutters d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                                <div>
+                                    <div class="facility-icon-wrapper kolecka-joga_a_zdravotni_cviceni"></div>
+                                </div>
+                                <div class="ml-2">
+                                    <a href="" class="title sys-search-item" data-id="3" data-search_type="ACTIVITY_CATEGORY" data-url="/cs/category/joga-a-zdravotni-cviceni-3">Jóga a zdravotní cvičení</a>
+                                    <div class="activities cat-3">
+                                        
+                                            <a href="" class="sys-search-item" data-id="3" data-search_type="ACTIVITY" data-url="/cs/activity/aerojoga-3">Aerojóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="7" data-search_type="ACTIVITY" data-url="/cs/activity/antigravity-joga-7">Antigravity jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="10" data-search_type="ACTIVITY" data-url="/cs/activity/ashtanga-vinyasa-joga-10">Ashtanga vinyasa jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="44" data-search_type="ACTIVITY" data-url="/cs/activity/cviceni-v-solne-jeskyni-44">Cvičení v solné jeskyni</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="210" data-search_type="ACTIVITY" data-url="/cs/activity/dns-210">DNS</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="49" data-search_type="ACTIVITY" data-url="/cs/activity/dynamic-joga-49">Dynamic jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="184" data-search_type="ACTIVITY" data-url="/cs/activity/fitness-joga-184">Fitness jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="200" data-search_type="ACTIVITY" data-url="/cs/activity/fly-joga-200">FLY jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="73" data-search_type="ACTIVITY" data-url="/cs/activity/hatha-joga-73">Hatha jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="203" data-search_type="ACTIVITY" data-url="/cs/activity/hormonalni-joga-203">Hormonální jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="78" data-search_type="ACTIVITY" data-url="/cs/activity/hot-joga-78">Hot jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="192" data-search_type="ACTIVITY" data-url="/cs/activity/joga-192">Jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="88" data-search_type="ACTIVITY" data-url="/cs/activity/jogalates-88">Jógalates</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="106" data-search_type="ACTIVITY" data-url="/cs/activity/kundalini-joga-106">Kundalini jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="194" data-search_type="ACTIVITY" data-url="/cs/activity/meditace-194">Meditace</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="121" data-search_type="ACTIVITY" data-url="/cs/activity/pet-tibetanu-121">Pět Tibeťanů</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="122" data-search_type="ACTIVITY" data-url="/cs/activity/pilates-122">Pilates</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="128" data-search_type="ACTIVITY" data-url="/cs/activity/power-jogaenergy-joga-128">Power jóga/Energy jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="129" data-search_type="ACTIVITY" data-url="/cs/activity/prana-vashya-joga-129">Prana Vashya Jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="133" data-search_type="ACTIVITY" data-url="/cs/activity/ranni-mobilita-133">Ranní mobilita</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="150" data-search_type="ACTIVITY" data-url="/cs/activity/sm-system-150">SM systém</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="168" data-search_type="ACTIVITY" data-url="/cs/activity/vinyasa-joga-168">Vinyasa jóga</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="173" data-search_type="ACTIVITY" data-url="/cs/activity/zdrava-zadabolesti-zad-173">Zdravá záda/Bolesti zad</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="174" data-search_type="ACTIVITY" data-url="/cs/activity/zdravotnikompenzacni-cviceni-174">Zdravotní/kompenzační cvičení</a>
+                                        
+                                    </div>
+                                    <a class="all-activities show-more" style="display: none">Zobrazit všechny aktivity</a>
+                                    <a class="all-activities show-less" style="display: none">Zobrazit méně aktivit</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        <div href="#" class="card ts-item ts-card ts-result row no-gutters d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                                <div>
+                                    <div class="facility-icon-wrapper kolecka-lezecke_steny"></div>
+                                </div>
+                                <div class="ml-2">
+                                    <a href="" class="title sys-search-item" data-id="4" data-search_type="ACTIVITY_CATEGORY" data-url="/cs/category/lezecke-steny-4">Lezecké stěny</a>
+                                    <div class="activities cat-4">
+                                        
+                                            <a href="" class="sys-search-item" data-id="77" data-search_type="ACTIVITY" data-url="/cs/activity/horolezecka-a-boulderova-stena-77">Horolezecká a boulderová stěna</a>
+                                        
+                                    </div>
+                                    <a class="all-activities show-more" style="display: none">Zobrazit všechny aktivity</a>
+                                    <a class="all-activities show-less" style="display: none">Zobrazit méně aktivit</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        <div href="#" class="card ts-item ts-card ts-result row no-gutters d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                                <div>
+                                    <div class="facility-icon-wrapper kolecka-posilovny_a_silove_treninky"></div>
+                                </div>
+                                <div class="ml-2">
+                                    <a href="" class="title sys-search-item" data-id="5" data-search_type="ACTIVITY_CATEGORY" data-url="/cs/category/posilovny-a-silove-treninky-5">Posilovny a silové tréninky</a>
+                                    <div class="activities cat-5">
+                                        
+                                            <a href="" class="sys-search-item" data-id="39" data-search_type="ACTIVITY" data-url="/cs/activity/crossfit-39">Crossfit®</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="187" data-search_type="ACTIVITY" data-url="/cs/activity/cross-gym-187">Cross gym</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="40" data-search_type="ACTIVITY" data-url="/cs/activity/crossovy-trenazer-40">Crossový trenažer</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="38" data-search_type="ACTIVITY" data-url="/cs/activity/cross-trenink-38">Cross trénink</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="59" data-search_type="ACTIVITY" data-url="/cs/activity/fitness-pro-zenysmartfit-59">Fitness pro ženy/SmartFit</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="97" data-search_type="ACTIVITY" data-url="/cs/activity/kardio-zona-97">Kardio zóna</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="207" data-search_type="ACTIVITY" data-url="/cs/activity/ocr-trenink-207">OCR trénink</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="127" data-search_type="ACTIVITY" data-url="/cs/activity/posilovna-127">Posilovna</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="147" data-search_type="ACTIVITY" data-url="/cs/activity/silovy-trojboj-147">Silový trojboj</a>
+                                        
+                                    </div>
+                                    <a class="all-activities show-more" style="display: none">Zobrazit všechny aktivity</a>
+                                    <a class="all-activities show-less" style="display: none">Zobrazit méně aktivit</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        <div href="#" class="card ts-item ts-card ts-result row no-gutters d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                                <div>
+                                    <div class="facility-icon-wrapper kolecka-pro_tehotne"></div>
+                                </div>
+                                <div class="ml-2">
+                                    <a href="" class="title sys-search-item" data-id="6" data-search_type="ACTIVITY_CATEGORY" data-url="/cs/category/pro-tehotne-6">Pro těhotné</a>
+                                    <div class="activities cat-6">
+                                        
+                                            <a href="" class="sys-search-item" data-id="41" data-search_type="ACTIVITY" data-url="/cs/activity/cviceni-podle-mojzisove-41">Cvičení podle Mojžíšové</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="199" data-search_type="ACTIVITY" data-url="/cs/activity/cviceni-pro-tehotne-199">Cvičení pro těhotné</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="87" data-search_type="ACTIVITY" data-url="/cs/activity/joga-pro-tehotnegravidy-joga-87">Jóga pro těhotné/Gravidy jóga</a>
+                                        
+                                    </div>
+                                    <a class="all-activities show-more" style="display: none">Zobrazit všechny aktivity</a>
+                                    <a class="all-activities show-less" style="display: none">Zobrazit méně aktivit</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        <div href="#" class="card ts-item ts-card ts-result row no-gutters d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                                <div>
+                                    <div class="facility-icon-wrapper kolecka-raketove_a_micove_sporty"></div>
+                                </div>
+                                <div class="ml-2">
+                                    <a href="" class="title sys-search-item" data-id="7" data-search_type="ACTIVITY_CATEGORY" data-url="/cs/category/raketove-a-micove-sporty-7">Raketové a míčové sporty</a>
+                                    <div class="activities cat-7">
+                                        
+                                            <a href="" class="sys-search-item" data-id="11" data-search_type="ACTIVITY" data-url="/cs/activity/badminton-11">Badminton</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="15" data-search_type="ACTIVITY" data-url="/cs/activity/beach-volejbal-leto-15">Beach Volejbal (léto)</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="225" data-search_type="ACTIVITY" data-url="/cs/activity/padel-225">Padel</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="230" data-search_type="ACTIVITY" data-url="/cs/activity/pickleball-230">Pickleball</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="138" data-search_type="ACTIVITY" data-url="/cs/activity/ricochet-138">Ricochet</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="154" data-search_type="ACTIVITY" data-url="/cs/activity/squash-154">Squash</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="155" data-search_type="ACTIVITY" data-url="/cs/activity/stolni-tenis-155">Stolní tenis</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="163" data-search_type="ACTIVITY" data-url="/cs/activity/tenis-leto-163">Tenis (léto)</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="229" data-search_type="ACTIVITY" data-url="/cs/activity/tenis-zima-229">Tenis (zima)</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="170" data-search_type="ACTIVITY" data-url="/cs/activity/wallyball-170">Wallyball</a>
+                                        
+                                    </div>
+                                    <a class="all-activities show-more" style="display: none">Zobrazit všechny aktivity</a>
+                                    <a class="all-activities show-less" style="display: none">Zobrazit méně aktivit</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        <div href="#" class="card ts-item ts-card ts-result row no-gutters d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                                <div>
+                                    <div class="facility-icon-wrapper kolecka-sezonni_a_ostatni_aktivity"></div>
+                                </div>
+                                <div class="ml-2">
+                                    <a href="" class="title sys-search-item" data-id="8" data-search_type="ACTIVITY_CATEGORY" data-url="/cs/category/sezonni-a-ostatni-aktivity-8">Sezónní a ostatní aktivity</a>
+                                    <div class="activities cat-8">
+                                        
+                                            <a href="" class="sys-search-item" data-id="212" data-search_type="ACTIVITY" data-url="/cs/activity/adventure-golf-212">Adventure golf</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="235" data-search_type="ACTIVITY" data-url="/cs/activity/bezecka-diagnostika-235">Běžecká diagnostika</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="216" data-search_type="ACTIVITY" data-url="/cs/activity/bikesharing-leto-216">Bikesharing (léto)</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="224" data-search_type="ACTIVITY" data-url="/cs/activity/bobova-draha-224">Bobová dráha</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="27" data-search_type="ACTIVITY" data-url="/cs/activity/bowling-27">Bowling</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="234" data-search_type="ACTIVITY" data-url="/cs/activity/fotbalgolf-234">Fotbalgolf</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="69" data-search_type="ACTIVITY" data-url="/cs/activity/golf-driving-range-leto-69">Golf-driving range (léto)</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="223" data-search_type="ACTIVITY" data-url="/cs/activity/hrady-a-zamky-223">Hrady a zámky</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="221" data-search_type="ACTIVITY" data-url="/cs/activity/inbody-221">InBody</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="82" data-search_type="ACTIVITY" data-url="/cs/activity/in-line-brusleni-82">In-line bruslení</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="196" data-search_type="ACTIVITY" data-url="/cs/activity/kuzelky-196">Kuželky</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="232" data-search_type="ACTIVITY" data-url="/cs/activity/lanovka-232">Lanovka</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="220" data-search_type="ACTIVITY" data-url="/cs/activity/laser-game-220">Laser game</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="113" data-search_type="ACTIVITY" data-url="/cs/activity/lyzovani-snowboarding-113">Lyžování / snowboarding</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="211" data-search_type="ACTIVITY" data-url="/cs/activity/minigolf-211">Minigolf</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="214" data-search_type="ACTIVITY" data-url="/cs/activity/nextbike-leto-214">Nextbike (léto)</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="233" data-search_type="ACTIVITY" data-url="/cs/activity/pixel-game-233">Pixel game</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="136" data-search_type="ACTIVITY" data-url="/cs/activity/rekola-leto-136">Rekola (léto)</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="231" data-search_type="ACTIVITY" data-url="/cs/activity/snowtubing-231">Snowtubing</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="215" data-search_type="ACTIVITY" data-url="/cs/activity/trampolinovy-park-215">Trampolínový park</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="227" data-search_type="ACTIVITY" data-url="/cs/activity/turistika-227">Turistika</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="167" data-search_type="ACTIVITY" data-url="/cs/activity/verejne-brusleni-167">Veřejné bruslení</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="191" data-search_type="ACTIVITY" data-url="/cs/activity/vstup-do-domu-prirody-191">Vstup do Domu přírody</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="226" data-search_type="ACTIVITY" data-url="/cs/activity/zoo-a-zooparky-226">Zoo a zooparky</a>
+                                        
+                                    </div>
+                                    <a class="all-activities show-more" style="display: none">Zobrazit všechny aktivity</a>
+                                    <a class="all-activities show-less" style="display: none">Zobrazit méně aktivit</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        <div href="#" class="card ts-item ts-card ts-result row no-gutters d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                                <div>
+                                    <div class="facility-icon-wrapper kolecka-skupinove_a_tanecni_lekce"></div>
+                                </div>
+                                <div class="ml-2">
+                                    <a href="" class="title sys-search-item" data-id="9" data-search_type="ACTIVITY_CATEGORY" data-url="/cs/category/skupinove-a-tanecni-lekce-9">Skupinové a taneční lekce</a>
+                                    <div class="activities cat-9">
+                                        
+                                            <a href="" class="sys-search-item" data-id="1" data-search_type="ACTIVITY" data-url="/cs/activity/3d-trenink-1">3D trénink</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="206" data-search_type="ACTIVITY" data-url="/cs/activity/aerial-hoop-206">Aerial hoop</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="205" data-search_type="ACTIVITY" data-url="/cs/activity/aerial-silks-205">Aerial silks</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="2" data-search_type="ACTIVITY" data-url="/cs/activity/aerobik-2">Aerobik</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="4" data-search_type="ACTIVITY" data-url="/cs/activity/afrotance-4">Afrotance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="5" data-search_type="ACTIVITY" data-url="/cs/activity/aikido-5">Aikido</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="6" data-search_type="ACTIVITY" data-url="/cs/activity/alpinning-6">Alpinning</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="8" data-search_type="ACTIVITY" data-url="/cs/activity/aqua-aerobic-8">Aqua aerobic</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="218" data-search_type="ACTIVITY" data-url="/cs/activity/arnis-218">Arnis</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="12" data-search_type="ACTIVITY" data-url="/cs/activity/balet-12">Balet</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="14" data-search_type="ACTIVITY" data-url="/cs/activity/be-fit-14">Be fit</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="16" data-search_type="ACTIVITY" data-url="/cs/activity/befit-dance-16">BeFit Dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="17" data-search_type="ACTIVITY" data-url="/cs/activity/behani-17">Běhání</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="18" data-search_type="ACTIVITY" data-url="/cs/activity/betterbelly-18">BetterBelly</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="19" data-search_type="ACTIVITY" data-url="/cs/activity/body-balance-19">Body balance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="20" data-search_type="ACTIVITY" data-url="/cs/activity/body-ballcviceni-na-micifit-ball-20">Body ball/Cvičení na míči/Fit-ball</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="188" data-search_type="ACTIVITY" data-url="/cs/activity/bodycombat-188">BODYCOMBAT®</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="23" data-search_type="ACTIVITY" data-url="/cs/activity/bodymind-23">Body&amp;mind</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="179" data-search_type="ACTIVITY" data-url="/cs/activity/body-shape-179">Body Shape</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="21" data-search_type="ACTIVITY" data-url="/cs/activity/body-stepstep-aerobicstep-deckbakka-board-21">Body Step/Step aerobic/Step deck/Bakka board</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="22" data-search_type="ACTIVITY" data-url="/cs/activity/body-style-cardio-22">Body style cardio</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="24" data-search_type="ACTIVITY" data-url="/cs/activity/bodystylingbodyform-24">Bodystyling/Bodyform</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="181" data-search_type="ACTIVITY" data-url="/cs/activity/body-workout-181">Body workout</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="25" data-search_type="ACTIVITY" data-url="/cs/activity/bootcamp-25">Bootcamp</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="26" data-search_type="ACTIVITY" data-url="/cs/activity/bosukardiorehab-26">Bosu/kardio/rehab</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="28" data-search_type="ACTIVITY" data-url="/cs/activity/box-28">Box</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="29" data-search_type="ACTIVITY" data-url="/cs/activity/break-dance-29">Break dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="30" data-search_type="ACTIVITY" data-url="/cs/activity/bricho-a-hyzde-30">Břicho a hýždě</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="31" data-search_type="ACTIVITY" data-url="/cs/activity/brisni-pekacposilovani-brisnich-svalu-31">Břišní pekáč/Posilování břišních svalů</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="32" data-search_type="ACTIVITY" data-url="/cs/activity/brisni-tance-32">Břišní tance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="33" data-search_type="ACTIVITY" data-url="/cs/activity/capoeira-33">Capoeira</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="185" data-search_type="ACTIVITY" data-url="/cs/activity/cardio-traning-185">Cardio traning</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="34" data-search_type="ACTIVITY" data-url="/cs/activity/chi-toning-34">Chi-toning</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="35" data-search_type="ACTIVITY" data-url="/cs/activity/contemporary-dance-35">Contemporary Dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="36" data-search_type="ACTIVITY" data-url="/cs/activity/core-fitness-36">Core fitness</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="182" data-search_type="ACTIVITY" data-url="/cs/activity/core-training-182">Core training</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="43" data-search_type="ACTIVITY" data-url="/cs/activity/cviceni-pro-seniory-43">Cvičení pro seniory</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="45" data-search_type="ACTIVITY" data-url="/cs/activity/dance-fitnessdance-aerobic-45">Dance fitness/Dance aerobic</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="46" data-search_type="ACTIVITY" data-url="/cs/activity/dancehall-46">Dancehall</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="183" data-search_type="ACTIVITY" data-url="/cs/activity/deep-work-183">Deep work</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="48" data-search_type="ACTIVITY" data-url="/cs/activity/drumup-48">DrumUP!</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="50" data-search_type="ACTIVITY" data-url="/cs/activity/efektive-50">Efektive</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="51" data-search_type="ACTIVITY" data-url="/cs/activity/emp-51">EMP</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="52" data-search_type="ACTIVITY" data-url="/cs/activity/eskrima-52">Eskrima</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="53" data-search_type="ACTIVITY" data-url="/cs/activity/express-53">Express</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="54" data-search_type="ACTIVITY" data-url="/cs/activity/extrafit-54">Extrafit</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="56" data-search_type="ACTIVITY" data-url="/cs/activity/fitball-56">Fitball</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="57" data-search_type="ACTIVITY" data-url="/cs/activity/fitboxslimbox-57">Fitbox/Slimbox</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="55" data-search_type="ACTIVITY" data-url="/cs/activity/fit-slim-55">Fit &amp; Slim</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="60" data-search_type="ACTIVITY" data-url="/cs/activity/flexi-barstaby-60">Flexi Bar/Staby</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="61" data-search_type="ACTIVITY" data-url="/cs/activity/flexibility-training-61">Flexibility training</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="62" data-search_type="ACTIVITY" data-url="/cs/activity/flirt-dance-62">Flirt dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="63" data-search_type="ACTIVITY" data-url="/cs/activity/flowin-63">Flowin</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="64" data-search_type="ACTIVITY" data-url="/cs/activity/freestyler-64">Freestyler</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="67" data-search_type="ACTIVITY" data-url="/cs/activity/funkcni-trenink-67">Funkční trénink</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="65" data-search_type="ACTIVITY" data-url="/cs/activity/fun-wolker-65">Fun wolker</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="68" data-search_type="ACTIVITY" data-url="/cs/activity/fyziotrenink-68">Fyziotrénink</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="190" data-search_type="ACTIVITY" data-url="/cs/activity/grit-190">GRIT®</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="70" data-search_type="ACTIVITY" data-url="/cs/activity/gun-ex-70">Gun ex</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="71" data-search_type="ACTIVITY" data-url="/cs/activity/gymball-71">Gymball</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="72" data-search_type="ACTIVITY" data-url="/cs/activity/heat-program-72">H.E.A.T. program</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="74" data-search_type="ACTIVITY" data-url="/cs/activity/hiit-74">HIIT</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="75" data-search_type="ACTIVITY" data-url="/cs/activity/hip-hop-dance-75">Hip hop dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="76" data-search_type="ACTIVITY" data-url="/cs/activity/hit-dance-76">Hit Dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="79" data-search_type="ACTIVITY" data-url="/cs/activity/house-dance-79">House dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="186" data-search_type="ACTIVITY" data-url="/cs/activity/indoor-cycling-186">Indoor Cycling</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="80" data-search_type="ACTIVITY" data-url="/cs/activity/indoor-rowing-80">Indoor rowing</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="81" data-search_type="ACTIVITY" data-url="/cs/activity/indoor-walking-81">Indoor walking</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="83" data-search_type="ACTIVITY" data-url="/cs/activity/insanity-83">Insanity</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="84" data-search_type="ACTIVITY" data-url="/cs/activity/intervalovy-trenink-84">Intervalový trénink</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="85" data-search_type="ACTIVITY" data-url="/cs/activity/jazz-dancefit-jazz-85">Jazz dance/Fit jazz</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="86" data-search_type="ACTIVITY" data-url="/cs/activity/jiu-jitsu-86">Jiu-Jitsu</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="89" data-search_type="ACTIVITY" data-url="/cs/activity/judo-89">Judo</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="90" data-search_type="ACTIVITY" data-url="/cs/activity/jumpingtrampolinky-90">Jumping/Trampolínky</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="91" data-search_type="ACTIVITY" data-url="/cs/activity/k2-hiking-91">K2 Hiking</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="93" data-search_type="ACTIVITY" data-url="/cs/activity/kalanetika-93">Kalanetika</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="94" data-search_type="ACTIVITY" data-url="/cs/activity/kalestenika-94">Kalestenika</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="95" data-search_type="ACTIVITY" data-url="/cs/activity/kangoo-jump-95">Kangoo jump</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="96" data-search_type="ACTIVITY" data-url="/cs/activity/karate-96">Karate</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="217" data-search_type="ACTIVITY" data-url="/cs/activity/kendo-217">Kendo</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="98" data-search_type="ACTIVITY" data-url="/cs/activity/kettlebells-98">Kettlebells</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="99" data-search_type="ACTIVITY" data-url="/cs/activity/kickbox-99">Kickbox</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="100" data-search_type="ACTIVITY" data-url="/cs/activity/kickbox-aerobic-100">Kickbox aerobic</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="102" data-search_type="ACTIVITY" data-url="/cs/activity/kondicni-box-102">Kondiční box</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="103" data-search_type="ACTIVITY" data-url="/cs/activity/kondicni-cviceni-103">Kondiční cvičení</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="104" data-search_type="ACTIVITY" data-url="/cs/activity/kruhovy-trenink-104">Kruhový trénink</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="105" data-search_type="ACTIVITY" data-url="/cs/activity/kruhovy-trenink-pro-zeny-105">Kruhový trénink pro ženy</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="107" data-search_type="ACTIVITY" data-url="/cs/activity/ladies-style-107">Ladies style</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="108" data-search_type="ACTIVITY" data-url="/cs/activity/laido-108">Laido</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="109" data-search_type="ACTIVITY" data-url="/cs/activity/latino-dance-109">Latino dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="110" data-search_type="ACTIVITY" data-url="/cs/activity/latinskoamericke-tance-110">Latinskoamerické tance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="111" data-search_type="ACTIVITY" data-url="/cs/activity/les-mills-111">Les Mills</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="114" data-search_type="ACTIVITY" data-url="/cs/activity/master-jump-114">Master Jump</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="115" data-search_type="ACTIVITY" data-url="/cs/activity/move-it-115">Move It</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="116" data-search_type="ACTIVITY" data-url="/cs/activity/mtv-dance-116">Mtv dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="117" data-search_type="ACTIVITY" data-url="/cs/activity/nordic-walking-117">Nordic Walking</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="204" data-search_type="ACTIVITY" data-url="/cs/activity/orientalni-tance-204">Orientální tance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="208" data-search_type="ACTIVITY" data-url="/cs/activity/parkour-208">Parkour</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="119" data-search_type="ACTIVITY" data-url="/cs/activity/p-class-119">P-class</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="120" data-search_type="ACTIVITY" data-url="/cs/activity/perfect-body-workout-120">Perfect body workout</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="123" data-search_type="ACTIVITY" data-url="/cs/activity/piloxing-123">Piloxing</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="180" data-search_type="ACTIVITY" data-url="/cs/activity/piloxing-knockout-180">Piloxing Knockout</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="125" data-search_type="ACTIVITY" data-url="/cs/activity/pole-dance-125">Pole dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="126" data-search_type="ACTIVITY" data-url="/cs/activity/port-de-bras-126">Port de bras</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="130" data-search_type="ACTIVITY" data-url="/cs/activity/problemove-partie-130">Problémové partie</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="132" data-search_type="ACTIVITY" data-url="/cs/activity/pumpbody-pump-132">Pump/Body Pump</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="131" data-search_type="ACTIVITY" data-url="/cs/activity/pump-fx-131">Pump fx</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="197" data-search_type="ACTIVITY" data-url="/cs/activity/qigong-197">Qigong</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="209" data-search_type="ACTIVITY" data-url="/cs/activity/reggaeton-209">Reggaeton</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="135" data-search_type="ACTIVITY" data-url="/cs/activity/rehabilitacni-cviceni-135">Rehabilitační cvičení</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="137" data-search_type="ACTIVITY" data-url="/cs/activity/retrojive-137">Retrojive</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="139" data-search_type="ACTIVITY" data-url="/cs/activity/ropeskipping-139">Ropeskipping</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="140" data-search_type="ACTIVITY" data-url="/cs/activity/salsa-140">Salsa</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="141" data-search_type="ACTIVITY" data-url="/cs/activity/sambommak-1-141">Sambo/MMA/K-1</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="143" data-search_type="ACTIVITY" data-url="/cs/activity/schwinn-cycling-143">Schwinn cycling</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="144" data-search_type="ACTIVITY" data-url="/cs/activity/sebeobrana-144">Sebeobrana</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="145" data-search_type="ACTIVITY" data-url="/cs/activity/shaping-145">Shaping</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="189" data-search_type="ACTIVITY" data-url="/cs/activity/shbam-189">SH’BAM®</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="146" data-search_type="ACTIVITY" data-url="/cs/activity/silovy-trenink-146">Silový trénink</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="149" data-search_type="ACTIVITY" data-url="/cs/activity/slow-toning-149">Slow toning</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="153" data-search_type="ACTIVITY" data-url="/cs/activity/spinningcyclingspeeding-153">Spinning/Cycling/Speeding</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="156" data-search_type="ACTIVITY" data-url="/cs/activity/street-dance-156">Street dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="157" data-search_type="ACTIVITY" data-url="/cs/activity/stretching-157">Stretching</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="158" data-search_type="ACTIVITY" data-url="/cs/activity/tabata-158">Tabata</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="159" data-search_type="ACTIVITY" data-url="/cs/activity/tabata-navi-159">Tabata NAVI</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="178" data-search_type="ACTIVITY" data-url="/cs/activity/taebo-178">Taebo</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="160" data-search_type="ACTIVITY" data-url="/cs/activity/tae-boetb-160">Tae Bo/ETB</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="161" data-search_type="ACTIVITY" data-url="/cs/activity/tai-chi-161">Tai-chi</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="193" data-search_type="ACTIVITY" data-url="/cs/activity/tanec-193">Tanec</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="162" data-search_type="ACTIVITY" data-url="/cs/activity/t-bow-162">T-bow</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="164" data-search_type="ACTIVITY" data-url="/cs/activity/thaibox-164">Thaibox</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="165" data-search_type="ACTIVITY" data-url="/cs/activity/trxtrx-rip-trainerjungle-sports-165">TRX/TRX RIP TRAINER/Jungle sports</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="166" data-search_type="ACTIVITY" data-url="/cs/activity/twerk-dance-166">Twerk dance</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="171" data-search_type="ACTIVITY" data-url="/cs/activity/weights-171">Weights</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="222" data-search_type="ACTIVITY" data-url="/cs/activity/wing-chun-222">Wing Chun</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="175" data-search_type="ACTIVITY" data-url="/cs/activity/zpevnovani-postavy-hbsspalovaci-lekce-175">Zpevňování postavy HBS/Spalovací lekce</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="176" data-search_type="ACTIVITY" data-url="/cs/activity/zumba-176">Zumba</a>
+                                        
+                                    </div>
+                                    <a class="all-activities show-more" style="display: none">Zobrazit všechny aktivity</a>
+                                    <a class="all-activities show-less" style="display: none">Zobrazit méně aktivit</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        <div href="#" class="card ts-item ts-card ts-result row no-gutters d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                                <div>
+                                    <div class="facility-icon-wrapper kolecka-wellness_a_relax"></div>
+                                </div>
+                                <div class="ml-2">
+                                    <a href="" class="title sys-search-item" data-id="10" data-search_type="ACTIVITY_CATEGORY" data-url="/cs/category/wellness-a-relax-10">Wellness a relax</a>
+                                    <div class="activities cat-10">
+                                        
+                                            <a href="" class="sys-search-item" data-id="142" data-search_type="ACTIVITY" data-url="/cs/activity/saunapara-142">Sauna/Pára</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="151" data-search_type="ACTIVITY" data-url="/cs/activity/solna-jeskyne-151">Solná jeskyně</a>,
+                                        
+                                            <a href="" class="sys-search-item" data-id="172" data-search_type="ACTIVITY" data-url="/cs/activity/whirlpool-172">Whirlpool</a>
+                                        
+                                    </div>
+                                    <a class="all-activities show-more" style="display: none">Zobrazit všechny aktivity</a>
+                                    <a class="all-activities show-less" style="display: none">Zobrazit méně aktivit</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+            
+        </div>
+    </div>
+</div>
+
+
+                            </div>
+                        </section>
+                        
+                            <a class="d-flex align-items-center justify-content-center aside-banner" href="https://mapa.multisport.cz/cs/?seasonal_campaign=true" target="_blank">
+                                <img src="data:image/jpg;base64, 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">
+                            </a>
+                        
+                    </div>
+                
+                <!--end sidebar-->
+
+                <!-- MAP
+                =====================================================================================================-->
+                <div class="ts-map ts-z-index__1" style="">
+                    <div id="ts-map-hero" class="h-100 ts-z-index__1" style="">
+                    </div>
+                </div>
+
+            </div>
+            <!--end d-flex h-100-->
+
+        </div>
+        <!--end full-screen-->
+
+    </section>
+    <!--end ts-hero-->
+
+    
+    
+    
+        <div class="modal fade" id="id_first_time_modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="">Výběr produktu</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-description">
+                            <span>Vyber si jeden nebo více produktů, pro které chceš vyhledávat. Více informací nalezneš na</span>
+                            <a target="_blank" href="https://multisport.cz/">multisport.cz</a>
+                        </div>
+                        <div>
+                            <ul class="list-cards">
+                            
+                                <li>
+                                    <label for="id_card_modal_1" class="d-flex align-items-center justify-content-between justify-content-sm-start checkbox-container">
+                                            <input class="sys-card-modal-filter"
+                                                type="checkbox"
+                                                data-filter-label="cards"
+                                                data-filter-value="1"
+                                                id="id_card_modal_1" >
+                                            <span class="order-0 order-sm-1 order-sm-0 pl-sm-4 d-flex align-items-center d-sm-block">
+                                                <img class="d-block" src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/media/cards/silvercard_small.png" alt="Stříbrná" width="140" height="87">
+                                                <span class="d-block pl-2 pl-sm-0 pt-sm-2">Stříbrná</span>
+                                            </span>
+                                            <span class="order-1 order-sm-0 checkmark">
+                                                <i class="fas fa-check"></i>
+                                            </span>
+                                    </label>
+                                </li>
+                            
+                                <li>
+                                    <label for="id_card_modal_2" class="d-flex align-items-center justify-content-between justify-content-sm-start checkbox-container">
+                                            <input class="sys-card-modal-filter"
+                                                type="checkbox"
+                                                data-filter-label="cards"
+                                                data-filter-value="2"
+                                                id="id_card_modal_2" >
+                                            <span class="order-0 order-sm-1 order-sm-0 pl-sm-4 d-flex align-items-center d-sm-block">
+                                                <img class="d-block" src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/media/cards/kidscard_small.png" alt="Dítě" width="140" height="87">
+                                                <span class="d-block pl-2 pl-sm-0 pt-sm-2">Dítě</span>
+                                            </span>
+                                            <span class="order-1 order-sm-0 checkmark">
+                                                <i class="fas fa-check"></i>
+                                            </span>
+                                    </label>
+                                </li>
+                            
+                                <li>
+                                    <label for="id_card_modal_6" class="d-flex align-items-center justify-content-between justify-content-sm-start checkbox-container">
+                                            <input class="sys-card-modal-filter"
+                                                type="checkbox"
+                                                data-filter-label="cards"
+                                                data-filter-value="6"
+                                                id="id_card_modal_6" >
+                                            <span class="order-0 order-sm-1 order-sm-0 pl-sm-4 d-flex align-items-center d-sm-block">
+                                                <img class="d-block" src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/media/cards/litecard_small_y8ovamO.png" alt="LITE" width="140" height="87">
+                                                <span class="d-block pl-2 pl-sm-0 pt-sm-2">LITE</span>
+                                            </span>
+                                            <span class="order-1 order-sm-0 checkmark">
+                                                <i class="fas fa-check"></i>
+                                            </span>
+                                    </label>
+                                </li>
+                            
+                                <li>
+                                    <label for="id_card_modal_4" class="d-flex align-items-center justify-content-between justify-content-sm-start checkbox-container">
+                                            <input class="sys-card-modal-filter"
+                                                type="checkbox"
+                                                data-filter-label="cards"
+                                                data-filter-value="4"
+                                                id="id_card_modal_4" >
+                                            <span class="order-0 order-sm-1 order-sm-0 pl-sm-4 d-flex align-items-center d-sm-block">
+                                                <img class="d-block" src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/media/cards/studentcard_small.png" alt="Student" width="140" height="87">
+                                                <span class="d-block pl-2 pl-sm-0 pt-sm-2">Student</span>
+                                            </span>
+                                            <span class="order-1 order-sm-0 checkmark">
+                                                <i class="fas fa-check"></i>
+                                            </span>
+                                    </label>
+                                </li>
+                            
+                                <li>
+                                    <label for="id_card_modal_3" class="d-flex align-items-center justify-content-between justify-content-sm-start checkbox-container">
+                                            <input class="sys-card-modal-filter"
+                                                type="checkbox"
+                                                data-filter-label="cards"
+                                                data-filter-value="3"
+                                                id="id_card_modal_3" >
+                                            <span class="order-0 order-sm-1 order-sm-0 pl-sm-4 d-flex align-items-center d-sm-block">
+                                                <img class="d-block" src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/media/cards/fkspcard_small.png" alt="FKSP" width="140" height="87">
+                                                <span class="d-block pl-2 pl-sm-0 pt-sm-2">FKSP</span>
+                                            </span>
+                                            <span class="order-1 order-sm-0 checkmark">
+                                                <i class="fas fa-check"></i>
+                                            </span>
+                                    </label>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Přeskočit</button>
+                        <button type="button" class="btn btn-modal disabled" id="id_first_time_modal_save">Potvrdit výběr</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</div>
+<!--end page-->
+
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/jquery.scrollbar.min.js"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/leaflet.js"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/leaflet.markercluster.js"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/handlebars-v4.7.7.js"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/sammy.js"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/auth.js?v=4.0"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/map.js?v=6.2"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/app.js?v=7.0"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/search.js?v=8.1"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/menu.js?v=1.1"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/bundle.tracing.min.js?v=5.0"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/toastr.min.js"></script>
+<script src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/js/jquery.cookie.js"></script>
+<script src="https://connect.facebook.net/en_US/sdk.js" type="text/javascript" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
+
+<script>
+    Sentry.init({
+      dsn: "",
+      integrations: [new Sentry.Integrations.BrowserTracing()],
+      tracesSampleRate: 0.1,
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $.fancybox.defaults.hash = false;
+        $.fancybox.defaults.buttons = ["close"];
+
+        $('.sidebarToggler').click(function(){
+            $('.sidebar').toggleClass('sidebarToggle');
+            $('.sidebarToggler').toggleClass('toggle');
+        });
+        $('[data-fancybox="images"]').fancybox();
+
+    });
+
+    Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+      if(v1 === v2) {
+        return options.fn(this);
+      }
+      return options.inverse(this);
+    });
+
+    Handlebars.registerHelper('nl2br', function(text, isXhtml) {
+      const breakTag = isXhtml ? '<br />' : '<br>'
+      const withBr = Handlebars.escapeExpression(text).replace(
+        /([^>\r\n]?)(\r\n|\n\r|\r|\n)/g,
+        '$1' + breakTag + '$2'
+      )
+      return new Handlebars.SafeString(withBr)
+    })
+
+</script>
+<!-- TEMPLATES -->
+
+
+
+<script id="id_facility_detail-template" type="text/x-handlebars-template">
+    
+
+
+    <div class="detail">
+        <div class="d-flex align-items-center justify-content-start detail-item-header">
+            <a class="step-back" onclick="history.back(-1)" title="Zpět">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            <h1>{{ facility.name }}</h1>
+        </div>
+        <div class="gallery-holder">
+            <div class="gallery">
+                <div class="main-image">
+                
+                    
+        {{#if facility.main_image }}
+        
+                        <a data-fancybox="gallery" href="{{ facility.main_image.thumbnail_800_600 }}">
+                            <img src="{{ facility.main_image.thumbnail_400_300 }}" alt="First slide">
+                        </a>
+                    
+        {{else}}
+        
+                         <img src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/img/multisport-placeholder.png">
+                    
+        {{/if}}
+        
+                
+                </div>
+                <div class="thumbs">
+                    <div class="d-flex align-items-center justify-content-start">
+                        
+                            
+        {{#each facility.galery_images }}
+        
+                                    <a data-fancybox="gallery" class="thumb" href="{{ thumbnail_800_600 }}"><img src="{{ thumbnail_60_45 }}"></a>
+                            
+        {{/each}}
+        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="facility-badges">
+                
+                    
+        {{#if facility.is_new }}
+        
+                        <span class="badge badge-success">NEW</span>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.recommended }}
+        
+                        <span class="badge badge-primary">TOP</span>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                
+            </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-between icons-holder">
+            <div class="social-icons">
+                <a class="navigation-link" href="">
+                    <span class="icon-wrapper">
+                        <svg aria-hidden="true" data-prefix="fas" data-icon="location-arrow" class="svg-inline--fa fa-location-arrow fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M444.52 3.52L28.74 195.42c-47.97 22.39-31.98 92.75 19.19 92.75h175.91v175.91c0 51.17 70.36 67.17 92.75 19.19l191.9-415.78c15.99-38.39-25.59-79.97-63.97-63.97z"></path></svg>
+                    </span>
+                </a>
+                <a class="facebook" href="#" role="button" onclick="shareSocial('fb')">
+                    <span class="icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" class="at-icon at-icon-facebook" style="fill: rgb(255, 255, 255); width: 20px; height: 20px;"><g><path d="M22 5.16c-.406-.054-1.806-.16-3.43-.16-3.4 0-5.733 1.825-5.733 5.17v2.882H9v3.913h3.837V27h4.604V16.965h3.823l.587-3.913h-4.41v-2.5c0-1.123.347-1.903 2.198-1.903H22V5.16z" fill-rule="evenodd"></path></g></svg>
+                    </span>
+                </a>
+
+                <a class="copy" href="#" role="button" onclick="copyUrlToClipboard()">
+                    <span class="icon-wrapper">
+                        <svg class="copy-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+                    </span>
+                </a>
+            </div>
+            
+                
+        {{#if facility.only_virtual_card }}
+        
+                    <div class="d-flex align-items-end justify-content-center facility-logo-holder virtual-card-icon">
+                        <div class="facility-logo-holder virtual-card-icon-text align-right">
+                            <span>POUZE</span><br>
+                            <strong>VIRTUÁLNÍ KARTA</strong>
+                        </div>
+                        <img class="facility-logo" src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/img/virtual_card_detail.png">
+                    </div>
+                
+        {{else}}
+        
+                    
+        {{#if facility.logo_image.thumbnail_60_45 }}
+        
+                        <div class="d-flex align-items-center justify-content-center facility-logo-holder">
+                            <img class="facility-logo" src="{{ facility.logo_image.thumbnail_60_45 }}" />
+                        </div>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                
+        {{/if}}
+        
+            
+        </div>
+        <div class="cards-info">
+            
+                
+        {{#if facility.only_virtual_card }}
+        
+                    <div class="virtual-card-banner">
+                        <div>
+                            <span class="top-text">Zde akceptujeme pouze virtuální kartu MultiSport.</span><br>
+                            <span class="bottom-text">Stáhni si ji do mobilu a užij si všechny její výhody.</span>
+                        </div>
+                        <div class="virtual-card-banner-icon">
+                            <a href="https://multisport.cz/virtualni-karta" target="_blank"><img src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/img/download_icon.png"></a>
+                        </div>
+                    </div>
+                
+        {{else}}
+        
+        {{/if}}
+        
+                
+        {{#if facility.active_cards.any }}
+        
+                    <div class="cards-images">
+                        <div class="cards-images-inner">
+                            
+        {{#if facility.active_cards.visible }}
+        
+                                
+        {{#each facility.active_cards.visible }}
+        
+                                    <img data-toggle="tooltip" data-placement="bottom" width="60" height="38"  src="{{ image_url }}" alt="{{ name }}" title="{{ name }}">
+                                
+        {{/each}}
+        
+                            
+        {{else}}
+        
+        {{/if}}
+        
+                            
+        {{#if facility.active_cards.hidden }}
+        
+                                
+        {{#each facility.active_cards.hidden }}
+        
+                                    <img data-toggle="tooltip" data-placement="bottom" width="60" height="38"  src="{{ image_url }}" alt="{{ name }}" title="{{ name }}">
+                                
+        {{/each}}
+        
+                            
+        {{else}}
+        
+        {{/if}}
+        
+                        </div>
+                        <div class="sys-incompatible-cards-warning warning-incompatible-card" style="display: none">
+                            Některé z vybraných karet nejsou dostupné na tomto sportovišti.
+                        </div>
+                    </div>
+                
+        {{else}}
+        
+        {{/if}}
+        
+            
+            
+                
+        {{#if facility.active_cards.any }}
+        
+                    <div class="cards-list">
+                        <ul>
+                            
+        {{#if facility.active_cards.visible }}
+        
+                                
+        {{#each facility.active_cards.visible }}
+        
+                                    <li>
+                                        <i class="fas fa-id-card"></i>
+                                        <strong><span class="sys-card-available" data-card-id="{{ id }}">{{ name }}</span></strong>
+                                        <br />
+                                        <span class="card-desc">{{{ description }}}</span>
+                                    </li>
+                                
+        {{/each}}
+        
+                            
+        {{else}}
+        
+        {{/if}}
+        
+                            
+        {{#if facility.active_cards.hidden }}
+        
+                                <li>
+                                    <div id="id_facility_other_active_cards_toggle">
+                                        <i class="fas fa-id-card"></i>
+                                        <a href="#" class="other-cards-toggler">Podrobnosti k dalším produktům<i class="fas fa-chevron-down"></i></a>
+                                    </div>
+                                    <ul id="id_facility_other_active_cards" class="cards-other-active" style="display: none;">
+                                        
+        {{#each facility.active_cards.hidden }}
+        
+                                        <li>
+                                            <i class="fas fa-id-card"></i>
+                                            <strong><span class="sys-card-available" data-card-id="{{ id }}">{{ name }}</span></strong>
+                                            <br />
+                                            <span class="card-desc">{{{ description }}}</span>
+                                        </li>
+                                        
+        {{/each}}
+        
+                                    </ul>
+                                </li>
+                            
+        {{else}}
+        
+        {{/if}}
+        
+                        </ul>
+                    </div>
+                
+        {{else}}
+        
+        {{/if}}
+        
+            
+        </div>
+        <div class="content">
+            <ul class="list-unstyled">
+
+                
+
+
+
+
+
+
+
+                    
+        {{#if facility.website_url }}
+        
+                        <li class="d-flex align-items-center">
+                            <div>
+                                <i class="fas fa-globe" data-toggle="tooltip"  title="Web"></i>
+                            </div>
+                            <a href="{{ facility.website_url }}" target="_blank">{{ facility.website_url }}</a>
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.facebook_url }}
+        
+                        <li class="d-flex align-items-center">
+                            <div>
+                                <i class="fab fa-facebook" data-toggle="tooltip"  title="Facebook"></i>
+                            </div>
+                            <a href="{{ facility.facebook_url }}" target="_blank">{{ facility.facebook_url }}</a>
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.instagram_url }}
+        
+                        <li class="d-flex align-items-center">
+                            <div>
+                                <i class="fab fa-instagram" data-toggle="tooltip"  title="Instagram"></i>
+                            </div>
+                            <a href="{{ facility.instagram_url }}" target="_blank">{{ facility.instagram_url }}</a>
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.phone }}
+        
+                        <li class="d-flex align-items-center">
+                        <div>
+                            <i class="fas fa-phone" data-toggle="tooltip"  title="Telefon"></i>
+                        </div>
+                        <a href="tel:{{ facility.phone }}">{{ facility.phone }}</a>
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.email }}
+        
+                        <li class="d-flex align-items-center">
+                            <div>
+                                <i class="fas fa-envelope" data-toggle="tooltip"  title="E-mail"></i>
+                            </div>
+                            <a href="mailto:{{ facility.email }}">{{ facility.email }}</a>
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.street }}
+        
+                        <li class="d-flex align-items-center">
+                            <div>
+                                <i class="fas fa-map-marker-alt" data-toggle="tooltip"  title="Ulice"></i>
+                            </div>
+                            {{ facility.street }} {{ facility.number }}
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.city }}
+        
+                        <li class="d-flex align-items-center">
+                            <div>
+                                <i class="fas fa-building" data-toggle="tooltip"  title="Město"></i>
+                            </div>
+                            {{ facility.city }}
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.is_fksp_enabled }}
+        
+                        <li class="d-flex align-items-center">
+                            <div><i class="fas fa-info" title="front-facility_fksp_enabled_title"></i></div>
+                            V tomto zařízení je omezena možnost využití FKSP karty MultiSport.
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.air_condition }}
+        
+                        <li class="d-flex align-items-center">
+                            <div><i class="fas fa-info"></i></div>
+                            Klimatizováno
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.additional_payment }}
+        
+                        <li class="d-flex align-items-center">
+                            <div><i class="fas fa-info"></i></div>
+                            Požadován doplatek
+                            <span class="d-flex align-items-center justify-content-center info-icon" data-toggle="tooltip"  title="{{ facility.additional_payment_desc }}"><i class="fas fa-info"></i></span>
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.condition_number_person }}
+        
+                        <li class="d-flex align-items-center">
+                            <div><i class="fas fa-info"></i></div>
+                            Podmínka minimálního počtu osob
+                            <span class="d-flex align-items-center justify-content-center info-icon" data-toggle="tooltip"  title="{{ facility.condition_number_person_desc }}"><i class="fas fa-info"></i></span>
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if window.show_seasonal_campaigns }}
+        
+                        <li class="d-flex align-items-center">
+                            <div><i class="fas fa-info"></i></div>
+                            <strong>Sezónní kampaň:</strong>&nbsp;{{ facility.seasonal_campaign_formatted }}
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    <li class="d-flex align-items-center">
+                        <div><i class="fas fa-clock"></i></div>
+                        <strong>Provoz 24/7:</strong>&nbsp;{{ facility.unlimited_oh_formatted }}
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <div><i class="fas fa-cog"></i></div>
+                        <strong>Bezobslužný provoz:</strong>&nbsp;
+                        
+        {{#if facility.self_service_times }}
+        
+                            </li><li class="self-service-times">{{{ facility.self_service_times_formatted }}}
+                        
+        {{else}}
+        
+                            {{ facility.self_service_formatted }}
+                        
+        {{/if}}
+        
+                    </li>
+                    
+        {{#if facility.description }}
+        
+                        <li class="d-flex">
+                            <div><i class="fas fa-book"></i></div>
+                            <div>
+                            {{{ facility.description }}}
+                            </div>
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    
+        {{#if facility.video }}
+        
+                        <li class="d-flex">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="{{ facility.video.url }}" allowfullscreen></iframe>
+                            </div>
+                        </li>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                    <li>
+                    
+        {{#each facility.activity }}
+        
+                        <a href="#" class="badge badge-light sys-search-item" data-id="{{ id }}" data-search_type="{{ search_type }}" data-url="{{ url }}">{{ name }}</a>
+                    
+        {{/each}}
+        
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+</script>
+<script id="id_catalogue-template" type="text/x-handlebars-template">
+    
+
+
+<div class="catalogue">
+    <div class="ts-results-wrapper">
+        <div class="content">
+            <h1>Katalog aktivit</h1>
+            <p>S kartou MultiSport můžete navštívit širokou škálu pohybových i relaxačních aktivit. Vyberte si v katalogu nebo je vyhledejte na mapě a užijte si volný čas :)</p>
+        </div>
+        <div class="ts-result-link">
+            
+                
+        {{#each categories }}
+        
+                    
+        {{#if activities }}
+        
+                    <div href="#" class="card ts-item ts-card ts-result row no-gutters d-flex align-items-start">
+                        <div class="d-flex align-items-start">
+                            <div>
+                                <div class="facility-icon-wrapper kolecka-{{ icon_name }}"></div>
+                            </div>
+                            <div class="ml-2">
+                                <a href="" class="title sys-search-item" data-id="{{ id }}" data-search_type="{{ search_type }}" data-url="{{ url }}">{{ name }}</a>
+                                <div class="activities cat-{{ id }}">
+                                    
+        {{#each activities }}
+        
+                                        <a href="" class="sys-search-item" data-id="{{ id }}" data-search_type="{{ search_type }}" data-url="{{ url }}">{{ name }}</a>{{#unless @last }},{{/unless}}
+                                    
+        {{/each}}
+        
+                                </div>
+                                <a class="all-activities show-more" style="display: none">Zobrazit všechny aktivity</a>
+                                <a class="all-activities show-less" style="display: none">Zobrazit méně aktivit</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+        {{else}}
+        
+        {{/if}}
+        
+                
+        {{/each}}
+        
+            
+        </div>
+    </div>
+</div>
+
+</script>
+<script id="id_facility_sidebar_item-template" type="text/x-handlebars-template">
+    
+
+
+<div class="ts-result-link">
+    <a href="" class="card sys-facility-item ts-item ts-card ts-result row no-gutters d-flex flex-row align-items-start" data-id="{{ id }}">
+        <div class="d-flex align-items-center flex-grow-1">
+            <div class="d-flex align-items-center">
+                <span class="facility-icon-wrapper kolecka-{{ icon_name }}"></span>
+            </div>
+            <div class="d-flex align-items-center flex-grow-1 pl-2">
+                <div class="title">
+                    <span class="title-text">{{ name }}</span>
+                </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-end">
+                <div class="facility-badges">
+                    <div class="d-flex align-content-center justify-content-end flex-wrap">
+                        
+                            
+        {{#if is_new }}
+        
+                                <span class="badge badge-success">NEW</span>
+                            
+        {{else}}
+        
+        {{/if}}
+        
+                            
+        {{#if recommended }}
+        
+                                <span class="badge badge-primary">TOP</span>
+                            
+        {{else}}
+        
+        {{/if}}
+        
+                            
+        {{#if only_virtual_card }}
+        
+                                <span class="badge"><img src="https://cz0appsearchengine0prod.blob.core.windows.net/prod/static/img/virtual_card_list.png"></span>
+                            
+        {{else}}
+        
+        {{/if}}
+        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+</script>
+<script id="id_empty_search-template" type="text/x-handlebars-template">
+    
+<div class="content d-flex align-items-center justify-content-center empty-search-content">
+  <div class="text-center">
+    <h1>Výsledky vyhledávání</h1>
+    
+    <p class="mt-4"><a href="#" id="id_empty_search_catalogue_link">Přejít na katalog</a></p>
+  </div>
+</div>
+</script>
+<script id="id_autocomplete_facility_search_result_item-template" type="text/x-handlebars-template">
+    
+
+
+    
+        
+            <a class="d-flex align-items-center" href="">
+                {{#ifCond search_type SEARCH_TYPE_FACILITY }}
+                <div>
+                    <div class="facility-icon-wrapper point_modry-{{ icon_name }} align-self-start"></div>
+                </div>
+                {{else}}
+                <div>
+                    <div class="facility-icon-wrapper kolecka-{{ icon_name }}"></div>
+                </div>
+                {{/ifCond}}
+                <span class="search_item_label">{{ label }}</span>
+                <span hidden="true" class="search_item_data" data-search_type="{{ search_type }}" data-search_obj_id="{{ search_obj_id }}" data-url="{{ url }}"></span>
+            </a>
+        
+    
+
+
+</script>
+<script id="id_autocomplete_location_search_result_item-template" type="text/x-handlebars-template">
+    
+
+
+<a class="d-flex align-items-center" href="">
+    <span class="d-flex align-items-center justify-content-center icon-wrapper mr-1">
+        <i class="fas fa-map-marker-alt"></i>
+    </span>
+    <span class="search_item_label">{{ label }}</span>
+    <span hidden="true" class="search_item_data" data-value="{{ value }}"></span>
+</a>
+
+</script>
+<script id="id_search_results_header-template" type="text/x-handlebars-template">
+    
+
+
+<div class="content">
+    <h1>Výsledky vyhledávání</h1>
+    <p>{{ search_results_text_prefix }} {{ search_results_text_value }}</p>
+    <p>
+        
+            
+        {{#if display_search_results_location }}
+        
+                Pro lokalitu
+            
+        {{else}}
+        
+        {{/if}}
+        
+        
+        {{ search_results_location_value }}
+    </p>
+    <p>
+        
+            
+        {{#if display_search_results_filters }}
+        
+                Pokročilý filtr
+            
+        {{else}}
+        
+        {{/if}}
+        
+        
+        {{ search_results_filters_value }}
+    </p>
+</div>
+
+</script>
+
+</body>
+</html>
