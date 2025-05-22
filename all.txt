@@ -1,0 +1,24 @@
+// Případ 1 (řádek 440)
+// Z:
+const jsonMatch = aiResponse.match(/```json([\s\S]*?)```/) || 
+                       aiResponse.match(/{[\s\S]*?}/);
+                       
+const jsonStr = jsonMatch 
+  ? jsonMatch[1] ? jsonMatch[1].trim() : jsonMatch[0]
+  : aiResponse;
+
+// NA:
+const jsonMatch = typeof aiResponse === 'string' 
+  ? (aiResponse.match(/```json([\s\S]*?)```/) || aiResponse.match(/{[\s\S]*?}/))
+  : null;
+                 
+const jsonStr = jsonMatch 
+  ? jsonMatch[1] ? jsonMatch[1].trim() : jsonMatch[0]
+  : (typeof aiResponse === 'string' ? aiResponse : '{}');
+
+// Případ 2 (řádek 453)
+// Z:
+summary: aiResponse.substring(0, 200) + '...',
+
+// NA:
+summary: typeof aiResponse === 'string' ? aiResponse.substring(0, 200) + '...' : 'Nelze získat souhrn',
