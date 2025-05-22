@@ -1,0 +1,8 @@
+Files to remove:
+- client/src/components/venues/AdvancedReservationSystem.tsx
+- client/src/pages/cs/hybridni-rezervace-demo.tsx
+- client/src/components/reservations/ReservationSystem.tsx
+- client/src/components/reservations/FacilityReservationForm.tsx
+- client/src/components/reservations/TrainerReservationForm.tsx
+- client/src/components/reservations/TournamentReservationForm.tsx
+- client/src/styles/reservation.css
